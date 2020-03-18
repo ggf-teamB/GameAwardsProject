@@ -4,50 +4,46 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //characterController型の変数
+    private CharacterController characterController;
 
-    [SerializeField] public float moveSpeed;    //移動速度
-    [SerializeField] public float runSpeed;     //走る速度
-    [SerializeField] public float walkSpeed;    //歩く速度
-    [SerializeField] public int durability;     //耐久性
+    //キャラクターコントローラーを動かす為のVector3型の変数
+    [SerializeField] private Vector3 velocity;
 
-    [SerializeField] float x;                   //x座標
-    [SerializeField] float z;                   //z座標
-    [SerializeField] public int aniNum;         //アニメーション用
+    //ジャンプ力
+    [SerializeField] public float jumpPower;
 
-    //Animatorを入れる
-    private Animator animator;
+    //縦の視点移動の変数(カメラに合わせる)
+    [SerializeField] public Transform verRot;
 
-    //Main Cameraを入れる
-    [SerializeField] Transform cam;
+    //横の視点移動の変数(プレイヤーに合わせる)
+    [SerializeField] public Transform horRot;
 
-    //Rigidbodyを入れる
-    Rigidbody rb;
-
-    //CapsuleColloderを入れる
-    CapsuleCollider caps;
+    //移動速度
+    [SerializeField] public float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        //動く速度の初期値を歩く速度に設定する
-        moveSpeed = walkSpeed;
-
-        //Animatorコンポーネントを取得
-        animator = GetComponent<Animator>();
-
-        //Rigidbodyコンポーネントを取得
-        rb = GetComponent<Rigidbody>();
-
-        //勝手に回転しないように設定する
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-
-        //CapsuleColliderコンポーネントを取得
-        caps = GetComponent<CapsuleCollider>();
+        //characterControllerを変数に代入
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //マウスのx軸の動きを代入する
+        float x_Rotation = Input.GetAxis("Mouse X");
+
+        //マウスのy座標の動きを代入する
+        float y_Rotation = Input.GetAxis("Mouse Y");
+
+        //プレイヤーのY軸の回転をx_Rotationに合わせる
+        horRot.transform.Rotate(new Vector3(0, x_Rotation * 2, 0));
+
+        //カメラのX軸の回転をy_Rotationに合わせる
+        verRot.transform.Rotate(-(y_Rotation) * 2, 0, 0);
+
         //プレイヤーの移動
         Player_Move();
     }
@@ -55,32 +51,60 @@ public class Player : MonoBehaviour
     //プレイヤーの移動
     void Player_Move()
     {
-        //左shiftキー入力状態の時moveSpeedを走る速度に変更する
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            moveSpeed = runSpeed;
-        }
-        else
-        {
-            moveSpeed = walkSpeed;
-        }
-        
-        //A・Dキーで横移動
-        x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
-        //W・Sキーで前後移動
-        z = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
 
-        animator.SetFloat("X", x * aniNum);
-        animator.SetFloat("Y", z * aniNum);
-
-        //前移動の時だけ方向転換させる
-        if(z > 0)
+        //wキーが押されたとき
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x,
-                cam.eulerAngles.y, transform.rotation.z));
+
+            //前方にmoveSpeed*Time.deltaTimeだけ動かす
+            characterController.Move(
+                this.gameObject.transform.forward * moveSpeed * Time.deltaTime);
         }
 
-        //xとzの数値に基づいて移動
-        transform.position += transform.forward * z + transform.right * x;
+        //sキーが押されたとき
+        if (Input.GetKey(KeyCode.S))
+        {
+
+            //後方にmoveSpeed*Time.deltaTimeだけ動かす
+            characterController.Move(
+                this.gameObject.transform.forward * -1f * moveSpeed * Time.deltaTime);
+        }
+
+        //aキーが押されたとき
+        if (Input.GetKey(KeyCode.A))
+        {
+
+            //左にmoveSpeed*Time.deltaTimeだけ動かす
+            characterController.Move(
+                this.gameObject.transform.transform.right * -1 * moveSpeed * Time.deltaTime);
+        }
+
+        //dキーが押されたとき
+        if (Input.GetKey(KeyCode.D))
+        {
+
+            //右にmoveSpeed*Time.deltaTimeだけ動かす
+            characterController.Move(
+                this.gameObject.transform.right * moveSpeed * Time.deltaTime);
+        }
+
+        //キャラクターコントローラーをvelocityだけ動かし続ける
+        characterController.Move(velocity);
+
+        //velocityのy軸を重力*Time.deltaTime分だけ動かす
+        velocity.y += Physics.gravity.y * Time.deltaTime;
+
+        //キャラクターコントローラーが地面に接触しているとき
+        if (characterController.isGrounded)
+        {
+
+            //スペースキーが入力されたとき
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+                //velocity.yをjumpPowerにする
+                velocity.y = jumpPower;
+            }
+        }
     }
 }
