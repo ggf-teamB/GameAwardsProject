@@ -275,7 +275,7 @@ MonoBehaviour:
   bullet: {fileID: 6346729599529426395, guid: 2a4bd5b29bafba748a8088179b741923, type: 3}
   muzzle: {fileID: 386018587}
   speed: 1000
-  power: 0
+  charge: 0.5
 --- !u!4 &386018587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022,
@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620087455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
