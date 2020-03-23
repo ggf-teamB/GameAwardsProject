@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(EnemyStatus))]
 public class enemSlimemove : MonoBehaviour
 {
     public float speed = 1f; 　　　　　//徘徊してるときの敵の速さ
@@ -32,6 +33,7 @@ public class enemSlimemove : MonoBehaviour
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits_raycastHits = new RaycastHit[10];
+    private EnemyStatus _status;
 
     void Start()
     {
@@ -47,6 +49,12 @@ public class enemSlimemove : MonoBehaviour
     //CollisionDetectorのonTriggerStayにセットし、衝突判定を起こす
     public void OnDetectObject(Collider collider)
     {
+        if(!_status.IsMovable)
+        {
+            _agent.isStopped = true;
+            return;
+        }
+
         //検知したオブェクトに「player」のタグがついていれば、そのオブェクトを追いかける
         if(collider.CompareTag("Player"))
         {
