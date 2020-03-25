@@ -16,12 +16,6 @@ public class Player : MonoBehaviour
     //ジャンプ力
     [SerializeField] public float jumpPower;
 
-    //縦の視点移動の変数(カメラに合わせる)
-    [SerializeField] public Transform verRot;
-
-    //横の視点移動の変数(プレイヤーに合わせる)
-    [SerializeField] public Transform horRot;
-
     //移動速度
     [SerializeField] public float moveSpeed;
 
@@ -38,18 +32,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //マウスのx軸の動きを代入する
-        float x_Rotation = Input.GetAxis("Mouse X");
-
-        //マウスのy座標の動きを代入する
-        float y_Rotation = Input.GetAxis("Mouse Y");
-
-        //プレイヤーのY軸の回転をx_Rotationに合わせる
-        horRot.transform.Rotate(new Vector3(0, x_Rotation * 2, 0));
-
-        //カメラのX軸の回転をy_Rotationに合わせる
-        verRot.transform.Rotate(-(y_Rotation) * 2, 0, 0);
-
         //プレイヤーの移動
         Player_Move();
     }
