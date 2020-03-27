@@ -272,9 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd04c616ee629f4fa89d369dd7b1d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6346729599529426395, guid: 2a4bd5b29bafba748a8088179b741923, type: 3}
+  bullet: {fileID: 7560745958564181066, guid: c2a7110e109411741a3230434f93f877, type: 3}
   muzzle: {fileID: 386018587}
-  speed: 1000
+  speed: 100
   charge: 0.5
 --- !u!4 &386018587 stripped
 Transform:
@@ -358,13 +358,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620087455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -10, y: 4, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1322168546
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,13 +12,15 @@ public class Shooting : MonoBehaviour
     public Transform muzzle;
 
     // 弾丸の速度
-    public float speed = 1000;
+    public float speed = 600;
 
     public float charge= 0.5f;
 
     private bool flg = false;
+    private bool bflg = false;
     private bool chackflg = false;
     private float cnt = 0;
+    private float bcnt = 0;
 
     private Vector3 chack;
     private Vector3 mousePosition;
@@ -28,7 +30,8 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         bullet.transform.localScale = new Vector3(charge, charge, charge);
-    }
+        speed = 600;
+}
 
     // Update is called once per frame
     void Update()
@@ -43,9 +46,23 @@ public class Shooting : MonoBehaviour
         {
             flg = false;
         }
-        // 左クリックが押された時
+        //  右クリックが押されている状態なら
         if (Input.GetMouseButtonDown(0))
         {
+            bflg = true;
+            flg = false;
+        }
+        //  右クリックが離されている状態なら
+        if (Input.GetMouseButtonUp(0))
+        {
+            bflg = false;
+        }
+        // 左クリックが押された時
+        if (bflg == true) 
+        {
+            bcnt++;
+            if (bcnt == 5)
+            {
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet) as GameObject;
 
@@ -59,12 +76,11 @@ public class Shooting : MonoBehaviour
                 // 弾丸の位置を調整
                 bullets.transform.position = muzzle.position;
 
-       　　     // 三秒後に削除
-        　　    Destroy(bullets, 3.0f);
-
-                // 弾の大きさを元に戻す
-                charge = 0.5f;
-                bullet.transform.localScale = new Vector3(charge, charge, charge);
+                // 三秒後に削除
+                Destroy(bullets, 1.0f);
+                speed -= 10;
+                bcnt = 0;
+            }
         }
         // 右クリックが押され続けているなら
         if (flg == true)
@@ -91,19 +107,17 @@ public class Shooting : MonoBehaviour
                 if (mousePosition.x > chack.x + 50 && chackflg == true) 
                 {
                     // 弾チャージ
-                    bullet.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
-                    charge += 0.05f;
+                    speed += 100;
 
-                    // フラグを反転
-                    chackflg = false;
+                                        // フラグを反転
+                                        chackflg = false;
                 }
 
                 //左に振った
                 if (mousePosition.x < chack.x - 50 && chackflg == false)
                 {
                     // 弾チャージ
-                    bullet.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
-                    charge += 0.05f;
+                    speed += 100;
 
                     // フラグを反転
                     chackflg = true;
@@ -114,10 +128,14 @@ public class Shooting : MonoBehaviour
         }
 
         // チャージ上限
-        if(charge >= 2)
+        if (speed >= 2000)
         {
-            charge = 2;
-            bullet.transform.localScale = new Vector3(charge, charge, charge);
+            speed = 2000;
+        }
+        // チャージ上限
+        if (speed <= 400)
+        {
+            speed = 400;
         }
     }
 }
