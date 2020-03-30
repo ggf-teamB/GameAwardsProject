@@ -26,14 +26,15 @@ public class PlayerHp : MonoBehaviour
         {
             Debug.Log("死亡しました");
         }
+    }
 
-        if(cnt == 60)
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.tag == "Enemy")
         {
-            hp -= 1;
-            cnt = 0;
+            Debug.Log("Hit");
+
+            hp -= 10;
         }
-
-
-        cnt++;
     }
 }
