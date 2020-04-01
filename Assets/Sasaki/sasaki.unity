@@ -901,6 +901,9 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   jumpPower: 2
   moveSpeed: 10
+  level: 0
+  maxHp: 100
+  durability: 0
 --- !u!54 &1045743727
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -955,20 +958,6 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!114 &1045743731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045743725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5668269342cdd764e9980ffaaeda0130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 100
-  hp: 0
 --- !u!114 &1045743732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6346729599529426395, guid: 2a4bd5b29bafba748a8088179b741923, type: 3}
   muzzle: {fileID: 1045743728}
-  speed: 1000
+  WaterLaunch: 0
+  WaterSpeed: 0
   charge: 0.5
 --- !u!1 &1157034370
 GameObject:
@@ -1148,5 +1138,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

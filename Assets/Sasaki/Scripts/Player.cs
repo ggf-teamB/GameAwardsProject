@@ -19,6 +19,15 @@ public class Player : MonoBehaviour
     //移動速度
     [SerializeField] public float moveSpeed;
 
+    //レベル
+    [SerializeField] private int level;
+
+    //最大体力
+    [SerializeField] public int maxHp;
+
+    //体力
+    [SerializeField] public int durability;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +36,12 @@ public class Player : MonoBehaviour
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
+
+        //現在の体力を最大体力に設定する
+        durability = maxHp;
+
+        //levelに初期値を入れる
+        level = 1;
     }
 
     // Update is called once per frame
@@ -34,6 +49,9 @@ public class Player : MonoBehaviour
     {
         //プレイヤーの移動
         Player_Move();
+
+        //プレイヤーの生死
+        Player_Dead();
     }
 
     //プレイヤーの移動
@@ -116,5 +134,24 @@ public class Player : MonoBehaviour
 
         //velocityのy軸を重力*Time.deltaTime分だけ動かす
         velocity.y += Physics.gravity.y * Time.deltaTime;
+    }
+
+    //プレイヤーの生死
+    void Player_Dead()
+    {
+        //体力がなくなった場合
+        if(durability <= 0)
+        {
+            Debug.Log("死亡しました");
+        }
+    }
+
+    //当たり判定処理
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            durability -= 10;
+        }
     }
 }

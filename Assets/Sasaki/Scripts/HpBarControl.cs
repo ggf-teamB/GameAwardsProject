@@ -7,7 +7,7 @@ public class HpBarControl : MonoBehaviour
 {
 
     [SerializeField] GameObject player;     //プレイヤー
-    PlayerHp playerHp;                      //PlayerHpクラス
+    Player playerHp;                        //PlayerHpクラス
     [SerializeField] Slider hpSlider;       //Slider
     private int hp;                         //プレイヤーの体力
 
@@ -15,10 +15,10 @@ public class HpBarControl : MonoBehaviour
     void Start()
     {
         //PlayerHpを代入
-        playerHp = player.GetComponent<PlayerHp>();
+        playerHp = player.GetComponent<Player>();
 
         //プレイヤーの最大体力を代入する
-        hp = playerHp.maxHp;
+        hp = playerHp.durability;
 
         //Sliderのvalueの値を最大HPにする
         hpSlider.value = hp;
@@ -28,7 +28,7 @@ public class HpBarControl : MonoBehaviour
     void Update()
     {
         //nowHpにplayerHp.hpを代入する
-        int nowHp = playerHp.hp;
+        int nowHp = playerHp.durability;
 
         //SliderのvalueのnowHpにする
         hpSlider.value = nowHp;
