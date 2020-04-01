@@ -4,96 +4,132 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-
-    // bullet prefab
+    //弾(水)prefab
     public GameObject bullet;
 
-    // 弾丸発射点
+    //弾(水)発射点
     public Transform muzzle;
 
-    // 弾丸の速度
-    public float speed = 600;
+    //水発射フラグ
+    public bool WaterLaunch;
 
-    public float charge= 0.5f;
+    //水消費フラグ
+    public static bool WaterConsumption;
 
-    private bool flg = false;
-    private bool bflg = false;
-    private bool chackflg = false;
-    private float cnt = 0;
-    private float bcnt = 0;
+    //弾(水)の速度
+    public float WaterSpeed;
 
-    private Vector3 chack;
+    //弾(水)のチャージ
+    public float charge;
+
+    //右クリックフラグ
+    private bool MouseRightFlg;
+
+    //左クリックフラグ
+    private bool MouseLeftFlg;
+
+    //マウスの座標を記録するフラグ
+    private bool chackflg;
+
+    //感覚をあけるためのカウント
+    private float cnt;
+
+    //チェックカウント
+    private float chackcnt;
+
+    //一個目のマウス座標を取得していれる
     private Vector3 mousePosition;
 
+    //二個目のマウス座標を取得していれる
+    private Vector3 chack;
 
     // Use this for initialization
     void Start()
     {
         bullet.transform.localScale = new Vector3(charge, charge, charge);
-        speed = 600;
-}
+        WaterConsumption = false;
+        WaterSpeed = 600;
+        charge = 0.5f;
+        MouseRightFlg = false;
+        MouseLeftFlg = false;
+        chackflg = false;
+        cnt = 0;
+        chackcnt = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        WaterLaunch = UIWatarGauge.WaterLaunch;
         //  右クリックが押されている状態なら
         if (Input.GetMouseButtonDown(1))
         {
-            flg = true;
+            MouseRightFlg = true;
         }
-        //  右クリックが離されている状態なら
+        //右クリックが離されている状態なら
         if (Input.GetMouseButtonUp(1))
         {
-            flg = false;
+            MouseRightFlg = false;
         }
-        //  右クリックが押されている状態なら
+        //左クリックが押されている状態なら
         if (Input.GetMouseButtonDown(0))
         {
-            bflg = true;
-            flg = false;
+            MouseLeftFlg = true;
+            MouseRightFlg = false;
         }
-        //  右クリックが離されている状態なら
+        //左クリックが離されている状態なら
         if (Input.GetMouseButtonUp(0))
         {
-            bflg = false;
+            MouseLeftFlg = false;
+            WaterConsumption = false;
         }
-        // 左クリックが押された時
-        if (bflg == true) 
+        //左クリックが押された時かつ水発射フラグがtrueの時
+        if (MouseLeftFlg == true && WaterLaunch == true) 
         {
-            bcnt++;
-            if (bcnt == 5)
+            chackcnt++;
+            if (chackcnt == 5)
             {
-                // 弾丸の複製
+                //弾(水)の複製
                 GameObject bullets = Instantiate(bullet) as GameObject;
 
                 Vector3 force;
 
-                force = this.gameObject.transform.forward * speed;
+                force = this.gameObject.transform.forward * WaterSpeed;
 
-                // Rigidbodyに力を加えて発射
+                //Rigidbodyに力を加えて発射
                 bullets.GetComponent<Rigidbody>().AddForce(force);
 
-                // 弾丸の位置を調整
+                //弾丸の位置を調整
                 bullets.transform.position = muzzle.position;
 
-                // 三秒後に削除
+                //水消費フラグをtrueにする
+                WaterConsumption = true;
+
+                //三秒後に削除
                 Destroy(bullets, 1.0f);
-                speed -= 10;
-                bcnt = 0;
+
+                //水のスピードを弱める
+                WaterSpeed -= 10;
+
+                //カウントリセット
+                chackcnt = 0;
             }
         }
-        // 右クリックが押され続けているなら
-        if (flg == true)
+
+        //右クリックが押され続けているなら
+        if (MouseRightFlg == true)
         {
-            // カウント
+            //カウントが0の時
             if (cnt == 0)
             {
-                // マウスの座標を取得(Aとする)
+                //マウスの座標を取得(Aとする)
                 mousePosition = Input.mousePosition;
             }
-            // カウントアップ
+
+            //カウントアップ
             cnt++;
 
+            //カウントが10の時
             if (cnt == 10)
             {
                 // マウスの座標を取得(Bとする)
@@ -106,36 +142,38 @@ public class Shooting : MonoBehaviour
                 //右に振った
                 if (mousePosition.x > chack.x + 50 && chackflg == true) 
                 {
-                    // 弾チャージ
-                    speed += 100;
+                    //弾チャージ
+                    WaterSpeed += 100;
 
-                                        // フラグを反転
-                                        chackflg = false;
+                    //フラグを反転
+                    chackflg = false;
                 }
 
                 //左に振った
                 if (mousePosition.x < chack.x - 50 && chackflg == false)
                 {
-                    // 弾チャージ
-                    speed += 100;
+                    //弾チャージ
+                    WaterSpeed += 100;
 
-                    // フラグを反転
+                    //フラグを反転
                     chackflg = true;
                 }
-                // カウントリセット
+
+                //カウントリセット
                 cnt = 0;
             }
         }
 
-        // チャージ上限
-        if (speed >= 2000)
+        //チャージ上限
+        if (WaterSpeed >= 2000)
         {
-            speed = 2000;
+            WaterSpeed = 2000;
         }
-        // チャージ上限
-        if (speed <= 400)
+
+        //チャージ加限
+        if (WaterSpeed <= 400)
         {
-            speed = 400;
+            WaterSpeed = 400;
         }
     }
 }
