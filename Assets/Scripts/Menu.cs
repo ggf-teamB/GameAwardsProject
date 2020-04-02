@@ -15,22 +15,25 @@ public class Menu : MonoBehaviour
     void Update()
     {
 
-        //ステージ１にシーンを変更する
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            SceneManager.LoadScene("Game_St01");
-        }
-
-        //ステージ２にシーンを変更する
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene("Game_St02");
-        }
-
-        //ステージ３にシーンを変更する
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            SceneManager.LoadScene("Game_St03");
-        }
     }
+
+    //シーンをステージ１に変更する
+    public void First_Stage()
+    {
+        SceneManager.LoadScene("Game_St01");
+    }
+
+    //シーンをステージ２に変更する
+    public void Second_Stage()
+    {
+        SceneManager.LoadScene("Game_St02");
+    }
+
+    //シーンをステージ3に変更する
+    public void Third_Stage()
+    {
+        SceneManager.LoadScene("Game_St03");
+    }
+
+
 }
