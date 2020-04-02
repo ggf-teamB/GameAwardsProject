@@ -19,6 +19,9 @@ public class Shooting : MonoBehaviour
     //弾(水)の速度
     public float WaterSpeed;
 
+    //水のアニメーションスピード
+    public static float WatarAnimationSpeed;
+
     //弾(水)のチャージ
     public float charge;
 
@@ -43,24 +46,29 @@ public class Shooting : MonoBehaviour
     //二個目のマウス座標を取得していれる
     private Vector3 chack;
 
+    bool flg;
+
     // Use this for initialization
     void Start()
     {
         bullet.transform.localScale = new Vector3(charge, charge, charge);
         WaterConsumption = false;
         WaterSpeed = 600;
+        WatarAnimationSpeed = 20;
         charge = 0.5f;
         MouseRightFlg = false;
         MouseLeftFlg = false;
         chackflg = false;
         cnt = 0;
         chackcnt = 0;
+        flg = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         WaterLaunch = UIWatarGauge.WaterLaunch;
+
         //  右クリックが押されている状態なら
         if (Input.GetMouseButtonDown(1))
         {
@@ -86,7 +94,9 @@ public class Shooting : MonoBehaviour
         //左クリックが押された時かつ水発射フラグがtrueの時
         if (MouseLeftFlg == true && WaterLaunch == true) 
         {
+            //カウントアップ
             chackcnt++;
+
             if (chackcnt == 5)
             {
                 //弾(水)の複製
@@ -132,15 +142,16 @@ public class Shooting : MonoBehaviour
             //カウントが10の時
             if (cnt == 10)
             {
-                // マウスの座標を取得(Bとする)
+                //マウスの座標を取得(Bとする)
                 chack = Input.mousePosition;
 
-                // マウスAとマウスBの座標を比べる一定以上動いていればマウスを振っていると認識
-                // 振っているのを確認するため、chackflgがtrueだと右に振ったfalseだと左に振った
-                // マウスAとマウスBは一定の間隔で座標を取得するため、cntでカウントされている
+                //マウスAとマウスBの座標を比べる。一定以上動いていればマウスを振っていると認識
+                //振っているのを確認するため、chackflgがtrueだと右に振ったfalseだと左に振った
+                //マウスAとマウスBは一定の間隔で座標を取得するため、cntでカウントされている
 
                 //右に振った
-                if (mousePosition.x > chack.x + 50 && chackflg == true) 
+                if (mousePosition.x > chack.x + 50 && 
+                    chackflg == true && WaterLaunch == true ) 
                 {
                     //弾チャージ
                     WaterSpeed += 100;
@@ -150,7 +161,8 @@ public class Shooting : MonoBehaviour
                 }
 
                 //左に振った
-                if (mousePosition.x < chack.x - 50 && chackflg == false)
+                if (mousePosition.x < chack.x - 50 &&
+                    chackflg == false && WaterLaunch == true)
                 {
                     //弾チャージ
                     WaterSpeed += 100;
@@ -164,16 +176,66 @@ public class Shooting : MonoBehaviour
             }
         }
 
+        //最遅値のアニメーションスピードを設定
+        if (WatarAnimationSpeed >= 20)
+        {
+            WatarAnimationSpeed = 20;
+        }
+
+        //最速値のアニメーションスピードを設定
+        if (WatarAnimationSpeed <= 4)
+        {
+            WatarAnimationSpeed = 4;
+        }
+
+        //ゲージが空になったらアニメーションと勢いの速度をリセット
+        if(WaterLaunch == false)
+        {
+            WatarAnimationSpeed = 20;
+            WaterSpeed = 400;
+        }
+
         //チャージ上限
         if (WaterSpeed >= 2000)
         {
             WaterSpeed = 2000;
+            WatarAnimationSpeed = 9;
+            MouseRightFlg = false;
         }
 
         //チャージ加限
         if (WaterSpeed <= 400)
         {
             WaterSpeed = 400;
+            WatarAnimationSpeed = 20;
         }
+
+        //仮の処理---
+
+        if (WaterSpeed >= 1800 && WaterSpeed < 2000) WatarAnimationSpeed = 11;
+        if (WaterSpeed >= 1600 && WaterSpeed < 1800) WatarAnimationSpeed = 13;
+        if (WaterSpeed >= 1400 && WaterSpeed < 1600) WatarAnimationSpeed = 15;
+        if (WaterSpeed >= 1200 && WaterSpeed < 1400) WatarAnimationSpeed = 16;
+        if (WaterSpeed >= 1000 && WaterSpeed < 1200) WatarAnimationSpeed = 17;
+        if (WaterSpeed >= 800  && WaterSpeed < 1000) WatarAnimationSpeed = 18;
+        if (WaterSpeed >= 600  && WaterSpeed <  800) WatarAnimationSpeed = 19;
+
+        //  右クリックが押されている状態なら
+        if (Input.GetMouseButtonDown(2))
+        {
+            flg = true;
+        }
+        //右クリックが離されている状態なら
+        if (Input.GetMouseButtonUp(2))
+        {
+            flg = false;
+        }
+        //flgがtrueなら
+        if (flg == true)
+        {
+            //水のスピードを弱める
+            WaterSpeed -= 5;
+        }
+        //----------
     }
 }

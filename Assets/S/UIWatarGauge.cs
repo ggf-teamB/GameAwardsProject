@@ -28,6 +28,7 @@ public class UIWatarGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //水消費フラグをShootingクラスから取得
         WaterConsumption = Shooting.WaterConsumption;
 
@@ -52,19 +53,20 @@ public class UIWatarGauge : MonoBehaviour
 
         //仮の処理---
         //  右クリックが押されている状態なら
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(2))
         {
             flg = true;
         }
         //右クリックが離されている状態なら
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(2))
         {
             flg = false;
         }
         //flgがtrueなら
         if(flg == true)
         {
-            WatarGauge.fillAmount = 1.0f;
+            //ゲージが増える処理
+            WatarGauge.fillAmount += 1.0f / countTime * Time.deltaTime;
         }
         //----------
     }

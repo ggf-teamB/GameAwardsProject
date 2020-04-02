@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: a5ced8242d436ff4cacd3454ac8b9397
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6349548190055910781
+    second: tansann_0
+  - first:
+      213: -1810214511614455503
+    second: tansann_1
+  - first:
+      213: -6088330932468970247
+    second: tansann_2
+  - first:
+      213: -5412004878161399217
+    second: tansann_3
+  - first:
+      213: -4281847272152771034
+    second: tansann_4
+  - first:
+      213: -1356970319193037488
+    second: tansann_5
+  - first:
+      213: 7356703170064470291
+    second: tansann_6
+  - first:
+      213: 52895159927205023
+    second: tansann_7
+  - first:
+      213: -1713125773745700021
+    second: tansann_8
+  - first:
+      213: -3720636327285250223
+    second: tansann_9
+  - first:
+      213: -2931082419329408791
+    second: tansann_10
+  - first:
+      213: 3503830948541764884
+    second: tansann_11
+  - first:
+      213: 2717985968979491064
+    second: tansann_12
+  - first:
+      213: -5545991861660411287
+    second: tansann_13
+  - first:
+      213: 370364943475191063
+    second: tansann_14
+  - first:
+      213: -3425623050341745563
+    second: tansann_15
+  - first:
+      213: 3898374481055378463
+    second: tansann_16
+  - first:
+      213: 5958630415041793312
+    second: tansann_17
+  - first:
+      213: -8782501054364757497
+    second: tansann_18
+  - first:
+      213: 5672943314211373146
+    second: tansann_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tansann_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3823e7fff8fd1e7a0800000000000000
+      internalID: -6349548190055910781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_1
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13196fb1e73d0e6e0800000000000000
+      internalID: -1810214511614455503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_2
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc0a273647e18ba0800000000000000
+      internalID: -6088330932468970247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_3
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f423282cc32b4e4b0800000000000000
+      internalID: -5412004878161399217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_4
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626dbd89792d394c0800000000000000
+      internalID: -4281847272152771034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_5
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05520c92fa21b2de0800000000000000
+      internalID: -1356970319193037488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_6
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311dea14e82481660800000000000000
+      internalID: 7356703170064470291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_7
+      rect:
+        serializedVersion: 2
+        x: 4130
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c6cc12edbebb000800000000000000
+      internalID: 52895159927205023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_8
+      rect:
+        serializedVersion: 2
+        x: 4720
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4342507f21c938e0800000000000000
+      internalID: -1713125773745700021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_9
+      rect:
+        serializedVersion: 2
+        x: 5310
+        y: 590
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157afbd19f4ad5cc0800000000000000
+      internalID: -3720636327285250223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e06a74b114b257d0800000000000000
+      internalID: -2931082419329408791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_11
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4151ad00fab10a030800000000000000
+      internalID: 3503830948541764884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_12
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8b48996d938b520800000000000000
+      internalID: 2717985968979491064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_13
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a168629cda803b0800000000000000
+      internalID: -5545991861660411287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_14
+      rect:
+        serializedVersion: 2
+        x: 2360
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71da81d24fcc32500800000000000000
+      internalID: 370364943475191063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_15
+      rect:
+        serializedVersion: 2
+        x: 2950
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c7df54cfdb570d0800000000000000
+      internalID: -3425623050341745563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_16
+      rect:
+        serializedVersion: 2
+        x: 3540
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ce0c0afeec91630800000000000000
+      internalID: 3898374481055378463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_17
+      rect:
+        serializedVersion: 2
+        x: 4130
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d8764dace41b250800000000000000
+      internalID: 5958630415041793312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_18
+      rect:
+        serializedVersion: 2
+        x: 4720
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702581f92d94e1680800000000000000
+      internalID: -8782501054364757497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tansann_19
+      rect:
+        serializedVersion: 2
+        x: 5310
+        y: 0
+        width: 570
+        height: 570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a500f7243e75abe40800000000000000
+      internalID: 5672943314211373146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 361ba9a59593a174b99d4ae8cca50648
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
