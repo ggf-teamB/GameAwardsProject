@@ -7,6 +7,9 @@ public class Shooting : MonoBehaviour
     //弾(水)prefab
     public GameObject bullet;
 
+    //弾(水)の複製
+    public static GameObject bullets;
+
     //弾(水)発射点
     public Transform muzzle;
 
@@ -21,6 +24,12 @@ public class Shooting : MonoBehaviour
 
     //水のアニメーションスピード
     public static float WatarAnimationSpeed;
+
+    //補給フラグ
+    public bool SupplyFlg;
+
+    //MAXフラグ
+    public bool WatarMax;
 
     //弾(水)のチャージ
     public float charge;
@@ -46,28 +55,32 @@ public class Shooting : MonoBehaviour
     //二個目のマウス座標を取得していれる
     private Vector3 chack;
 
-    bool flg;
-
     // Use this for initialization
     void Start()
     {
+        charge = 0.5f;
         bullet.transform.localScale = new Vector3(charge, charge, charge);
         WaterConsumption = false;
         WaterSpeed = 600;
         WatarAnimationSpeed = 20;
-        charge = 0.5f;
         MouseRightFlg = false;
         MouseLeftFlg = false;
         chackflg = false;
         cnt = 0;
         chackcnt = 0;
-        flg = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //水発射フラグをUIWatarGaugeクラスから取得
         WaterLaunch = UIWatarGauge.WaterLaunch;
+
+        //MaxフラグをUIWatarGaugeクラスから取得
+        WatarMax = UIWatarGauge.WaterMax;
+
+        //水消費フラグをShootingクラスから取得
+        SupplyFlg = SupplyPoints.SupplyFlg;
 
         //  右クリックが押されている状態なら
         if (Input.GetMouseButtonDown(1))
@@ -100,7 +113,7 @@ public class Shooting : MonoBehaviour
             if (chackcnt == 5)
             {
                 //弾(水)の複製
-                GameObject bullets = Instantiate(bullet) as GameObject;
+                bullets = Instantiate(bullet) as GameObject;
 
                 Vector3 force;
 
@@ -210,8 +223,13 @@ public class Shooting : MonoBehaviour
             WatarAnimationSpeed = 20;
         }
 
-        //仮の処理---
+        //補給中は水の速度を少しずつ落としていく
+        if (WatarMax == false && SupplyFlg == true) 
+        {
+            WaterSpeed -= 1;
+        }
 
+        //仮の処理---
         if (WaterSpeed >= 1800 && WaterSpeed < 2000) WatarAnimationSpeed = 11;
         if (WaterSpeed >= 1600 && WaterSpeed < 1800) WatarAnimationSpeed = 13;
         if (WaterSpeed >= 1400 && WaterSpeed < 1600) WatarAnimationSpeed = 15;
@@ -219,23 +237,6 @@ public class Shooting : MonoBehaviour
         if (WaterSpeed >= 1000 && WaterSpeed < 1200) WatarAnimationSpeed = 17;
         if (WaterSpeed >= 800  && WaterSpeed < 1000) WatarAnimationSpeed = 18;
         if (WaterSpeed >= 600  && WaterSpeed <  800) WatarAnimationSpeed = 19;
-
-        //  右クリックが押されている状態なら
-        if (Input.GetMouseButtonDown(2))
-        {
-            flg = true;
-        }
-        //右クリックが離されている状態なら
-        if (Input.GetMouseButtonUp(2))
-        {
-            flg = false;
-        }
-        //flgがtrueなら
-        if (flg == true)
-        {
-            //水のスピードを弱める
-            WaterSpeed -= 5;
-        }
         //----------
     }
 }

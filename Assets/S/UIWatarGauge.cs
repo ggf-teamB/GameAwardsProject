@@ -15,22 +15,29 @@ public class UIWatarGauge : MonoBehaviour
     //水消費フラグ
     public bool WaterConsumption;
 
-    //仮の処理用のフラグ
-    bool flg = false;
+    //MAXフラグ
+    public static bool WaterMax;
+
+
+    //補給フラグ
+    public bool SupplyFlg;
 
     // Use this for initialization
     void Start()
     {
         countTime = 5.0f;
         WaterLaunch = true;
+        WaterMax = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         //水消費フラグをShootingクラスから取得
         WaterConsumption = Shooting.WaterConsumption;
+
+        //水消費フラグをShootingクラスから取得
+        SupplyFlg = SupplyPoints.SupplyFlg;
 
         //水消費フラグがtrueなら
         if (WaterConsumption)
@@ -51,22 +58,21 @@ public class UIWatarGauge : MonoBehaviour
             WaterLaunch = true;
         }
 
+        if(WatarGauge.fillAmount == 1)
+        {
+            WaterMax = true;
+        }
+        else
+        {
+            WaterMax = false;
+        }
+
         //仮の処理---
-        //  右クリックが押されている状態なら
-        if (Input.GetMouseButtonDown(2))
-        {
-            flg = true;
-        }
-        //右クリックが離されている状態なら
-        if (Input.GetMouseButtonUp(2))
-        {
-            flg = false;
-        }
         //flgがtrueなら
-        if(flg == true)
+        if (SupplyFlg == true)
         {
             //ゲージが増える処理
-            WatarGauge.fillAmount += 1.0f / countTime * Time.deltaTime;
+            WatarGauge.fillAmount += 0.75f / countTime * Time.deltaTime;
         }
         //----------
     }
