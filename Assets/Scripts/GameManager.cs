@@ -7,8 +7,8 @@ public enum GameState
 {
     Start,      //スタート時
     Playing,    //ゲーム中
-    End,         //終了時
-    None        //
+    End,        //終了時
+    None        //無し
 }
 
 public class GameManager : MonoBehaviour
@@ -80,6 +80,10 @@ public class GameManager : MonoBehaviour
             || SceneManager.GetActiveScene().name == "Game_St03")
         {
             SetGameState(GameState.Start);
+        }
+        else
+        {
+            SetGameState(GameState.None);
         }
     }
 }
