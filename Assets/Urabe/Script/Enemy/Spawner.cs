@@ -43,8 +43,8 @@ public class Spawner : MonoBehaviour
                     identity);
             }
 
-            //10秒待つ
-            yield return new WaitForSeconds(10);
+            //30秒待つ
+            yield return new WaitForSeconds(30);
 
             if(playerStatus.Life <= 0)
             {
