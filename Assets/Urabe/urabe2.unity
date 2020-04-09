@@ -3788,7 +3788,7 @@ GameObject:
   - component: {fileID: 345095069}
   m_Layer: 0
   m_Name: unitychan
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8112,10 +8112,14 @@ MonoBehaviour:
   bullet: {fileID: 6346729599529426395, guid: 2a4bd5b29bafba748a8088179b741923, type: 3}
   muzzle: {fileID: 345384570}
   WaterLaunch: 0
-  WaterSpeed: 0
   SupplyFlg: 0
   WatarMax: 0
   charge: 0.5
+  MouseRightFlg: 0
+  MouseLeftFlg: 0
+  chackflg: 0
+  cnt: 0
+  chackcnt: 0
 --- !u!1 &1157034370
 GameObject:
   m_ObjectHideFlags: 0
@@ -8555,6 +8559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: unitychan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228118011107545813, guid: 414781983dde9db4ab94a2c749458bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8228118011757355297, guid: 414781983dde9db4ab94a2c749458bc6,
         type: 3}

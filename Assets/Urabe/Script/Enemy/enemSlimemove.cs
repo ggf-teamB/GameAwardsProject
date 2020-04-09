@@ -28,7 +28,7 @@ public class enemSlimemove : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(targetpos - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationspeed);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        Debug.Log("haikai");
+        //Debug.Log("haikai");
     }
 
     private NavMeshAgent _agent;
