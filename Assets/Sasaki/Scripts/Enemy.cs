@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
             {
                 GameObject bullets = Instantiate(bullet) as GameObject;
 
+                EnemyBullet e = bullets.GetComponent<EnemyBullet>();
+
                 Vector3 force;
 
                 force = this.gameObject.transform.forward * 30;
@@ -50,9 +52,6 @@ public class Enemy : MonoBehaviour
 
                 //弾丸の位置を調整
                 bullets.transform.position = mazuru;
-
-                //三秒後に削除
-                Destroy(bullets, 1.0f);
             }
 
             timeleft = 1.0f;
