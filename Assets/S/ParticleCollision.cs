@@ -18,14 +18,16 @@ public class ParticleCollision : MonoBehaviour
 
     void OnParticleCollision(GameObject Object)
     {
-        //処理内容
-
-        //例）衝突したオブジェクトタグがEnemyだった場合、オブジェクトを破壊する
-
         if (Object.gameObject.tag == "Enemy")
         {
             Destroy(Object);
             Debug.Log("敵に当たったよ");
+        }
+
+        if (Object.gameObject.tag == "field")
+        {
+            Destroy(gameObject,0.1f);
+            Debug.Log("地面との濃厚接触");
         }
     }
 }

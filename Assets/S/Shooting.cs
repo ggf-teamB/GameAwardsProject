@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     public static bool WaterConsumption;
 
     //弾(水)の速度
-    public float WaterSpeed;
+    public static float WaterSpeed;
 
     //水のアニメーションスピード
     public static float WatarAnimationSpeed;
@@ -35,19 +35,19 @@ public class Shooting : MonoBehaviour
     public float charge;
 
     //右クリックフラグ
-    private bool MouseRightFlg;
+    public bool MouseRightFlg;
 
     //左クリックフラグ
-    private bool MouseLeftFlg;
+    public bool MouseLeftFlg;
 
     //マウスの座標を記録するフラグ
-    private bool chackflg;
+    public bool chackflg;
 
     //感覚をあけるためのカウント
-    private float cnt;
+    public float cnt;
 
     //チェックカウント
-    private float chackcnt;
+    public float chackcnt;
 
     //一個目のマウス座標を取得していれる
     private Vector3 mousePosition;
@@ -117,6 +117,7 @@ public class Shooting : MonoBehaviour
 
                 Vector3 force;
 
+                //キャラクターの向いてる方向に力を加える
                 force = this.gameObject.transform.forward * WaterSpeed;
 
                 //Rigidbodyに力を加えて発射
@@ -205,7 +206,7 @@ public class Shooting : MonoBehaviour
         if(WaterLaunch == false)
         {
             WatarAnimationSpeed = 20;
-            WaterSpeed = 400;
+            WaterSpeed = 600;
         }
 
         //チャージ上限
@@ -217,9 +218,9 @@ public class Shooting : MonoBehaviour
         }
 
         //チャージ加限
-        if (WaterSpeed <= 400)
+        if (WaterSpeed < 600)
         {
-            WaterSpeed = 400;
+            WaterSpeed = 600;
             WatarAnimationSpeed = 20;
         }
 

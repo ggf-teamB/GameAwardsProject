@@ -18,7 +18,6 @@ public class UIWatarGauge : MonoBehaviour
     //MAXフラグ
     public static bool WaterMax;
 
-
     //補給フラグ
     public bool SupplyFlg;
 
@@ -67,13 +66,11 @@ public class UIWatarGauge : MonoBehaviour
             WaterMax = false;
         }
 
-        //仮の処理---
         //flgがtrueなら
         if (SupplyFlg == true)
         {
             //ゲージが増える処理
             WatarGauge.fillAmount += 0.75f / countTime * Time.deltaTime;
         }
-        //----------
     }
 }
