@@ -24,7 +24,7 @@ public class ParticleCollision : MonoBehaviour
             Debug.Log("敵に当たったよ");
         }
 
-        if (Object.gameObject.tag == "field")
+        if (Object.gameObject.tag == "Field")
         {
             Destroy(gameObject,0.1f);
             Debug.Log("地面との濃厚接触");
