@@ -17,10 +17,13 @@ public class Player : MonoBehaviour
     [SerializeField] public float jumpPower;
 
     //移動速度
-    [SerializeField] public float moveSpeed;
+    [SerializeField] private float moveSpeed;
 
-    //レベル
-    [SerializeField] private int level;
+    //歩く速度
+    [SerializeField] private float walkSpeed = 5;
+
+    //走る速度
+    [SerializeField] private float ranSpeed;
 
     //最大体力
     [SerializeField] public int maxHp;
@@ -40,8 +43,7 @@ public class Player : MonoBehaviour
         //現在の体力を最大体力に設定する
         durability = maxHp;
 
-        //levelに初期値を入れる
-        level = 1;
+        ranSpeed = walkSpeed * 1.5f;
     }
 
     // Update is called once per frame
@@ -57,6 +59,17 @@ public class Player : MonoBehaviour
     //プレイヤーの移動
     void Player_Move()
     {
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = ranSpeed;
+        }
+        else
+        {
+            moveSpeed = walkSpeed;
+        }
+
+
         //wキーが押されたとき
         if (Input.GetKey(KeyCode.W))
         {

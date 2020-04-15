@@ -771,8 +771,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   jumpPower: 0
-  moveSpeed: 2
-  level: 0
+  moveSpeed: 0
+  walkSpeed: 5
+  ranSpeed: 0
   maxHp: 100
   durability: 0
 --- !u!143 &992345625
