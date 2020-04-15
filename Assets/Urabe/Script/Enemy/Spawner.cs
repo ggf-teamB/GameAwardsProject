@@ -34,16 +34,27 @@ public class Spawner : MonoBehaviour
                 spawnPositionFromPlayer;
 
             //指定座標から一番近いNavMeshの座標を探す
-            NavMeshHit navMeshHit;
-            if (NavMesh.SamplePosition(spawnPosition, out navMeshHit,10,
-                NavMesh.AllAreas))
-            {
-                //enemyPrefabを複製
-                Instantiate(enemyPrefab, navMeshHit.position, Quaternion.
-                    identity);
-            }
+            //NavMeshHit navMeshHit;
+            //if (NavMesh.SamplePosition(spawnPosition, out navMeshHit,10,
+            //NavMesh.AllAreas))
+            //{
+            //enemyPrefabを複製
+            /*Instantiate(enemyPrefab, navMeshHit.position, Quaternion.
+                identity);*/
 
-            //10秒待つ
+            var enemycount = 0;
+            enemycount += 1;
+            if (enemycount < 2)
+            {
+                Instantiate(enemyPrefab);
+            }
+            else
+            {
+                break;
+            }
+            //}
+
+            //30秒待つ
             yield return new WaitForSeconds(10);
 
             if(playerStatus.Life <= 0)
