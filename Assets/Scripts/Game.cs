@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        SceneDate.Instance.referer = SceneManager.GetActiveScene().name;
+        Debug.Log(SceneDate.Instance.referer);
     }
 
     // Update is called once per frame
@@ -23,5 +24,11 @@ public class Game : MonoBehaviour
         {
             SceneManager.LoadScene("Result");
         }
+    }
+
+    //プレイヤーの体力が0になった時に呼ぶ
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
