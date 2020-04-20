@@ -284,6 +284,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182663346}
   m_CullTransparentMesh: 0
+--- !u!1 &241754589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9077310153613218502, guid: 0fb10869cbddc42428cee4d918ced480,
+    type: 3}
+  m_PrefabInstance: {fileID: 9077310154198061920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &241754597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241754589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16cb672a993ed241a9648a6f09f20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &241754598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241754589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79df30c911ba2f544987d51da690da58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 1000
+  countTime: 0
+  nextCountTime: 1
 --- !u!1 &311027183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,10 +1816,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 9077310153613218502, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9077310153613218510, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.48
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 9077310153613218510, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
