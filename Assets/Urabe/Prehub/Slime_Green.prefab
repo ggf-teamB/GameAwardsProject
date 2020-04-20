@@ -712,9 +712,10 @@ GameObject:
   - component: {fileID: 5957962880459455190}
   - component: {fileID: 5957962880459455177}
   - component: {fileID: 5957962880459455176}
+  - component: {fileID: 3639710841620623567}
   m_Layer: 0
   m_Name: Slime_Green
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880459455179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.33, y: -2.141749e-16, z: 0.17}
+  m_LocalPosition: {x: -6.33, y: 50, z: 0.17}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_Children:
   - {fileID: 5957962879622100943}
@@ -782,9 +783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2949118e46c7554284e3128bc342753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   rotationspeed: 1
-  posrange: 10
+  posrange: 2
   targetdistance: 0
 --- !u!195 &5957962880459455191
 NavMeshAgent:
@@ -844,13 +845,26 @@ Rigidbody:
   m_GameObject: {fileID: 5957962880459455179}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3639710841620623567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957962880459455179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86a6a9fc9628be409d40f9fc9e02af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localGravity: {x: 0, y: 20, z: 0}
 --- !u!1 &5957962880544090996
 GameObject:
   m_ObjectHideFlags: 0
