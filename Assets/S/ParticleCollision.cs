@@ -8,7 +8,7 @@ public class ParticleCollision : MonoBehaviour
     {
         if (Object.gameObject.tag == "Enemy")
         {
-            Object.gameObject.GetComponent<zako_Controll>().TakeDamage(10);
+           // Object.gameObject.GetComponent<zako_Controll>().TakeDamage(10);
             Destroy(gameObject);
             Debug.Log("敵に当たったよ");
         }

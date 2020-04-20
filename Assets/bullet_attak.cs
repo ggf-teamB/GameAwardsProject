@@ -9,17 +9,13 @@ public class bullet_attak : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    //　コライダのIsTriggerのチェックを外し物理的な衝突をさせる場合
+    void OnCollisionEnter(Collision col)
     {
-        void OnTriggerEnter(Collision col)
+        if (col.gameObject.tag == "Enemy")
         {
-            if(col.gameObject.tag == "Enemy")
-            {
-                col.gameObject.GetComponent<zako_Controll>().TakeDamage(100);
-                Destroy(gameObject);
-                Debug.Log("aaaaaaa");
-            }
+            col.gameObject.GetComponent<zako_Controll>().TakeDamage(100);
+            Destroy(gameObject);
         }
     }
 }
