@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     //現在のステータス状態
-    [SerializeField] private GameState gameState;
+    [SerializeField] public GameState gameState;
 
     private void Awake()
     {
@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     void StartAction()
     {
         Debug.Log("ゲーム画面です");
+
+        SetGameState(GameState.Playing);
     }
 
     void PlayingAction()

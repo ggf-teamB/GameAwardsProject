@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     //体力
     [SerializeField] public int durability;
 
+    [SerializeField] private GameObject stManager;
+
+    private St01_Manager st01;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
         durability = maxHp;
 
         ranSpeed = walkSpeed * 1.5f;
+
+        st01 = stManager.GetComponent<St01_Manager>();
     }
 
     // Update is called once per frame
@@ -155,7 +161,7 @@ public class Player : MonoBehaviour
         //体力がなくなった場合
         if(durability <= 0)
         {
-            Debug.Log("死亡しました");
+            st01.GameOver();
         }
     }
 

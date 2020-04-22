@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-
     void Start()
     {
         SceneDate.Instance.referer = SceneManager.GetActiveScene().name;
@@ -15,20 +14,21 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Menu");
-        }
-
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("Result");
         }
     }
 
-    //プレイヤーの体力が0になった時に呼ぶ
+    //ゲームオーバーの時シーンを切り替える
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    //ゲームクリア時シーンを切り替える
+    public void GameClear()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
