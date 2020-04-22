@@ -7,6 +7,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyStatus))]
 public class enemSlimemove : MonoBehaviour
 {
+    [SerializeField] private LayerMask raycastLayerMask;
+
     public float speed = 1f; 　　　　　//徘徊してるときの敵の速さ
     public float rotationspeed = 1f; 　//徘徊途中の方向転換で、体を目標位置に向ける回転速度
     public float posrange = 10f;       //ランダムで目標位置を決めるときの範囲
@@ -32,7 +34,7 @@ public class enemSlimemove : MonoBehaviour
     }
 
     private NavMeshAgent _agent;
-    private RaycastHit[] _raycastHits_raycastHits = new RaycastHit[10];
+    private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
 
     private void Start()
@@ -70,7 +72,9 @@ public class enemSlimemove : MonoBehaviour
             var direction = positionDiff.normalized;
 
             //_raycastHitsに、ヒットしたCollderや座標情報の格納
-            var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits_raycastHits, distance);
+            var hitCount = Physics.RaycastNonAlloc(transform.position,
+           direction, _raycastHits, distance, raycastLayerMask);
+
             Debug.Log("hitCount:" + hitCount);
             if (hitCount == 0)
             {

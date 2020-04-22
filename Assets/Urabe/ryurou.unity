@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 0.1
-    agentSlope: 15
-    agentClimb: 0.1
+    agentRadius: 1
+    agentHeight: 0.3
+    agentSlope: 19
+    agentClimb: 0.3
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -6302,17 +6302,17 @@ PrefabInstance:
     - target: {fileID: 5957962879583864715, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.573395
+      value: -10.92
       objectReference: {fileID: 0}
     - target: {fileID: 5957962879583864715, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.91
+      value: 50.06
       objectReference: {fileID: 0}
     - target: {fileID: 5957962879583864715, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.28
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 5957962879583864715, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
@@ -6357,12 +6357,47 @@ PrefabInstance:
     - target: {fileID: 5957962880147098484, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_Radius
-      value: 0.02
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880147098484, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880147098484, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5957962880459455179, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_Name
       value: 'Slime_Green '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880459455188, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: raycastLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880459455189, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880459455189, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880459455189, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962880459455191, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5957962881026373739, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
@@ -6668,8 +6703,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033166475}
-  m_LocalRotation: {x: 0.12741221, y: 0.5653423, z: 0.088912345, w: -0.8100919}
-  m_LocalPosition: {x: 69.5256, y: 39.691963, z: 80.77611}
+  m_LocalRotation: {x: 0.15786164, y: 0.2405632, z: 0.03968194, w: -0.9568879}
+  m_LocalPosition: {x: 6.316105, y: 38.38236, z: 10.191875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -492,11 +492,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880147098473}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.01
-  m_Center: {x: 0, y: 0.008, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5957962880147098487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,10 +767,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.02
-  m_Height: 0.01
+  m_Radius: 0.01
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.005, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5957962880459455188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,10 +783,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2949118e46c7554284e3128bc342753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  speed: 4
   rotationspeed: 1
   posrange: 2
-  targetdistance: 0
+  targetdistance: 2
 --- !u!195 &5957962880459455191
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -794,7 +797,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880459455179}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 3.5
@@ -808,7 +811,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &5957962880459455190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +862,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880459455179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f86a6a9fc9628be409d40f9fc9e02af8, type: 3}
   m_Name: 
