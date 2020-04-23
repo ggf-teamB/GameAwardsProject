@@ -11,21 +11,21 @@ public class enemSlimemove : MonoBehaviour
 
     public float speed = 1f; 　　　　　//徘徊してるときの敵の速さ
     public float rotationspeed = 1f; 　//徘徊途中の方向転換で、体を目標位置に向ける回転速度
-    public float posrange = 10f;       //ランダムで目標位置を決めるときの範囲
+    public float posrange = 50f;       //ランダムで目標位置を決めるときの範囲
     private Vector3 targetpos;         //目標位置の位置（具体的な座標）
     private float changetarget = 50f;  //方向転換
     public float targetdistance;       //目標位置までの距離
 
     //ランダムの目標位置を決める
-    /*Vector3 GetRandomPosition(Vector3 currentpos)
+    Vector3 GetRandomPosition(Vector3 currentpos)
     {
         return new Vector3(Random.Range(-posrange + currentpos.x, posrange + currentpos.x), 0, Random.Range(-posrange + currentpos.z, posrange + currentpos.z));
-    }*/
+    }
 
     //ただ徘徊するだけ
     void haikai()
     {
-        //if (targetdistance < changetarget) targetpos = GetRandomPosition(transform.position);
+        if (targetdistance < changetarget) targetpos = GetRandomPosition(transform.position);
 
         Quaternion targetRotation = Quaternion.LookRotation(targetpos - transform.position);
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationspeed);
@@ -39,7 +39,7 @@ public class enemSlimemove : MonoBehaviour
 
     private void Start()
     {
-        //targetpos = GetRandomPosition(transform.position);
+        targetpos = GetRandomPosition(transform.position);
         _agent = GetComponent<NavMeshAgent>();
     }
 
