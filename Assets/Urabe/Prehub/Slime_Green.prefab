@@ -478,7 +478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880147098473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0033, z: 0.0007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5957962879583864715}
@@ -492,11 +492,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880147098473}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.011
-  m_Center: {x: 0, y: 0.006, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5957962880147098487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,9 +712,10 @@ GameObject:
   - component: {fileID: 5957962880459455190}
   - component: {fileID: 5957962880459455177}
   - component: {fileID: 5957962880459455176}
+  - component: {fileID: 3639710841620623567}
   m_Layer: 0
   m_Name: Slime_Green
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880459455179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.33, y: -2.141749e-16, z: 0.17}
+  m_LocalPosition: {x: -6.33, y: 50, z: 0.21}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_Children:
   - {fileID: 5957962879622100943}
@@ -766,10 +767,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.012
-  m_Height: 0.01
+  m_Radius: 0.01
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.005, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5957962880459455188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,10 +783,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2949118e46c7554284e3128bc342753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  speed: 4
   rotationspeed: 1
-  posrange: 10
-  targetdistance: 0
+  posrange: 2
+  targetdistance: 2
 --- !u!195 &5957962880459455191
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -793,7 +797,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957962880459455179}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 3.5
@@ -807,7 +811,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &5957962880459455190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +855,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3639710841620623567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957962880459455179}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86a6a9fc9628be409d40f9fc9e02af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localGravity: {x: 0, y: -20, z: 0}
 --- !u!1 &5957962880544090996
 GameObject:
   m_ObjectHideFlags: 0

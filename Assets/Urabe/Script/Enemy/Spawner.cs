@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             //距離10のベクトル
-            var distanceVector = new Vector3(10, 0);
+            var distanceVector = new Vector3(50, 0);
 
             //プレイヤーの位置をベースにした数の出現位置　Y軸に対してランダムに360度回転
             var spawnPositionFromPlayer = Quaternion.Euler(0, Random.
@@ -34,28 +34,30 @@ public class Spawner : MonoBehaviour
                 spawnPositionFromPlayer;
 
             //指定座標から一番近いNavMeshの座標を探す
-            //NavMeshHit navMeshHit;
-            //if (NavMesh.SamplePosition(spawnPosition, out navMeshHit,10,
-            //NavMesh.AllAreas))
-            //{
-            //enemyPrefabを複製
-            /*Instantiate(enemyPrefab, navMeshHit.position, Quaternion.
-                identity);*/
+            NavMeshHit navMeshHit;
 
             var enemycount = 0;
-            enemycount += 1;
-            if (enemycount < 2)
+
+            if (NavMesh.SamplePosition(spawnPosition, out navMeshHit, 10,
+            NavMesh.AllAreas))
             {
-                Instantiate(enemyPrefab);
+                //enemyPrefabを複製
+                Instantiate(enemyPrefab, navMeshHit.position, Quaternion.
+                    identity);
             }
-            else
-            {
-                break;
-            }
-            //}
+
+                enemycount += 1;
+                if (enemycount < 10)
+                {
+                    Instantiate(enemyPrefab);
+                }
+                else
+                {
+                    break;
+                }
 
             //30秒待つ
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(30);
 
             if(playerStatus.Life <= 0)
             {
