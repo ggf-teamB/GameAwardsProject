@@ -10,10 +10,10 @@ public class zako_Controll : MonoBehaviour
     {
         status = GetComponent<CountDownHP.zako_status>();
     }
-    
+
     public void TakeDamage(int damage)
     {
         status.SetDamage(damage);
     }
-  
+
 }
