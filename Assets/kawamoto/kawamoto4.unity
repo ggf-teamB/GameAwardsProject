@@ -211,6 +211,18 @@ MonoBehaviour:
   countTime: 0
   Max: 0
   WaterSpeed: 0
+--- !u!114 &124101135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5957962880877335192, guid: 0fb10869cbddc42428cee4d918ced480,
+    type: 3}
+  m_PrefabInstance: {fileID: 9077310154198061920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &182663346
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,8 +314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79df30c911ba2f544987d51da690da58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAXHP: 100
   HP: 100
   player_Bullet: {fileID: 209955226}
+  HP_UI: {fileID: 437614256}
+  hpSlider: {fileID: 124101135}
 --- !u!114 &209955226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +586,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
+--- !u!1 &437614256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5957962880274139717, guid: 0fb10869cbddc42428cee4d918ced480,
+    type: 3}
+  m_PrefabInstance: {fileID: 9077310154198061920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &550148795
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +976,7 @@ MonoBehaviour:
   ranSpeed: 0
   maxHp: 100
   durability: 0
+  stManager: {fileID: 0}
 --- !u!143 &992345625
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6618,7 +6640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033166475}
   m_LocalRotation: {x: 0.004209158, y: 0.9937694, z: 0.10383644, w: -0.04028271}
-  m_LocalPosition: {x: -9.181161, y: 45.343918, z: 13.479891}
+  m_LocalPosition: {x: -9.133648, y: 45.219887, z: 14.065005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

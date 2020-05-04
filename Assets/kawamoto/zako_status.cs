@@ -18,6 +18,7 @@ namespace CountDownHP
 
         //HP表示テキスト/表示される値
         private Text hpText;
+
         //現在のダメージ量
         private int damage = 0;
 
@@ -46,7 +47,6 @@ namespace CountDownHP
 
         public void Set_HP()
         {
-            this.HP = HP;
 
             //　HP表示用UIのアップデート
             UpdateHPValue();
@@ -67,6 +67,7 @@ namespace CountDownHP
                 Debug.Log("Hiiiiit Player");
                 HP -= bullet_pow;
                 Set_HP();
+
             }
         }
 
