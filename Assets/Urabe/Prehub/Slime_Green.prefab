@@ -509,6 +509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d6adf1726d64f40b0dff4e181cf1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
   onTriggerStay:
     m_PersistentCalls:
       m_Calls:
@@ -786,10 +789,10 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  speed: 4
+  speed: 1
   rotationspeed: 1
-  posrange: 2
-  targetdistance: 2
+  posrange: 50
+  targetdistance: 50
 --- !u!195 &5957962880459455191
 NavMeshAgent:
   m_ObjectHideFlags: 0

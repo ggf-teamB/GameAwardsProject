@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             //距離10のベクトル
-            var distanceVector = new Vector3(50, 0);
+            var distanceVector = new Vector3(100, 0);
 
             //プレイヤーの位置をベースにした数の出現位置　Y軸に対してランダムに360度回転
             var spawnPositionFromPlayer = Quaternion.Euler(0, Random.
