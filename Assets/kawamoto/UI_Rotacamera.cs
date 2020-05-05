@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class UI_Rotacamera : MonoBehaviour
 {
-    // public GameObject test_camera
+    public GameObject HP_bar;   //HPバー
+
+    public Vector3 HP_bar_pos;  //HPバーの位置
 
     private void Update()
     {
@@ -15,6 +17,8 @@ public class UI_Rotacamera : MonoBehaviour
     void Loteupdate()
     {
         transform.LookAt(Camera.main.transform);
+        HP_bar = transform.Find("HP_bar").gameObject;
+        HP_bar_pos = HP_bar.transform.localPosition;
         Debug.Log("urabe");
     }
 
