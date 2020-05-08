@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
     //体力
     [SerializeField] public int durability;
 
+    //鍵を持っているかどうか
+    [SerializeField] public bool isKey;
+
     [SerializeField] private GameObject stManager;
 
     private St01_Manager st01;
@@ -48,6 +51,8 @@ public class Player : MonoBehaviour
         durability = maxHp;
 
         ranSpeed = walkSpeed * 1.5f;
+
+        isKey = false;
 
         st01 = stManager.GetComponent<St01_Manager>();
     }
