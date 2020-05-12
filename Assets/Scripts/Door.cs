@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -9,12 +10,19 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-
-            Instantiate(message);
+            message.SetActive(true);
 
             Debug.Log("今日のごはんは浦部とリューロウの和え物");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            message.SetActive(false);
         }
     }
 }
