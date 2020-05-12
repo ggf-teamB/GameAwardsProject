@@ -11,14 +11,14 @@ public class UI_Rotacamera : MonoBehaviour
 
     private void Update()
     {
-        Loteupdate();
+        //Loteupdate();
     }
 
     void Loteupdate()
     {
         transform.LookAt(Camera.main.transform);
-        HP_bar = transform.Find("HP_bar").gameObject;
-        HP_bar_pos = HP_bar.transform.localPosition;
+        //HP_bar = transform.Find("HP_bar").gameObject;
+        //HP_bar_pos = HP_bar.transform.localPosition;
         Debug.Log("urabe");
     }
 
