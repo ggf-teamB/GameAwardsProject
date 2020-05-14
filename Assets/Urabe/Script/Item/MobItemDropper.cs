@@ -17,7 +17,7 @@ public class MobItemDropper : MonoBehaviour
     }
     private void Update()
     {
-        if (_status.HP <= 0)
+        if (_status.Life <= 0)
         {
             //ライフが尽きたときに実行
             DropIfNeeded();
