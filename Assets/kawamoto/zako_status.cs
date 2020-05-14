@@ -14,7 +14,7 @@ namespace CountDownHP
 
         //HP
         [SerializeField]
-        private int HP;
+        public int HP;
 
         //HP表示テキスト/表示される値
         private Text hpText;

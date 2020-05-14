@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(MobStatus))]
+[RequireComponent(typeof(CountDownHP.zako_status))]
 public class MobItemDropper : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1)] private float dropRate = 0.1f;
+    [SerializeField] [Range(0, 1)] private float dropRate = 1.0f;
     //アイテムの出現確率
     [SerializeField] private Item itemPrefab;
     [SerializeField] private int number = 1; 　//アイテム出現個数
 
-    public MobStatus _status;
+    public CountDownHP.zako_status _status;
     private bool _isDropInvoked;
     private void Start()
     {
-        _status = GetComponent<MobStatus>();
+        _status = GetComponent<CountDownHP.zako_status>();
     }
     private void Update()
     {
-        if (_status.Life <= 0)
+        if (_status.HP <= 0)
         {
             //ライフが尽きたときに実行
             DropIfNeeded();
