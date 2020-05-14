@@ -902,6 +902,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5957962881026373739, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957962881026373739, guid: 0fb10869cbddc42428cee4d918ced480,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8579974827456962975, guid: 0fb10869cbddc42428cee4d918ced480,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -985,9 +995,11 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   jumpPower: 2
   moveSpeed: 10
-  level: 0
+  walkSpeed: 5
+  ranSpeed: 0
   maxHp: 100
   durability: 0
+  stManager: {fileID: 0}
 --- !u!54 &1045743727
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1057,8 +1069,14 @@ MonoBehaviour:
   bullet: {fileID: 6346729599529426395, guid: 2a4bd5b29bafba748a8088179b741923, type: 3}
   muzzle: {fileID: 1045743728}
   WaterLaunch: 0
-  WaterSpeed: 0
+  SupplyFlg: 0
+  WatarMax: 0
   charge: 0.5
+  MouseRightFlg: 0
+  MouseLeftFlg: 0
+  chackflg: 0
+  cnt: 0
+  chackcnt: 0
 --- !u!1 &1157034370
 GameObject:
   m_ObjectHideFlags: 0
