@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(CountDownHP.zako_status))]
+[RequireComponent(typeof(MobStatus))]
 public class MobItemDropper : MonoBehaviour
 {
     [SerializeField] [Range(0, 1)] private float dropRate = 0.1f;
@@ -9,11 +9,11 @@ public class MobItemDropper : MonoBehaviour
     [SerializeField] private Item itemPrefab;
     [SerializeField] private int number = 1; 　//アイテム出現個数
 
-    public CountDownHP.zako_status _status;
+    public MobStatus _status;
     private bool _isDropInvoked;
     private void Start()
     {
-        _status = GetComponent<CountDownHP.zako_status>();
+        _status = GetComponent<MobStatus>();
     }
     private void Update()
     {
