@@ -8,13 +8,12 @@ public class Door : MonoBehaviour
     //メッセージ表示させる
     [SerializeField] GameObject message;
 
+    //イベントに参加したとき
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             message.SetActive(true);
-
-            Debug.Log("今日のごはんは浦部とリューロウの和え物");
         }
     }
 
