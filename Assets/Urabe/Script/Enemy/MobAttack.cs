@@ -2,18 +2,18 @@
 using UnityEngine;
 
 //攻撃制御クラス
-[RequireComponent(typeof(MobStatus))]
+[RequireComponent(typeof(zako_Status))]
 public class MobAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 0.5f;  //攻撃クールダウン
     [SerializeField] private Collider attackCollider;
 
-    private MobStatus _status;
+    private zako_Status _status;
 
     // Start is called before the first frame update
     private void Start()
     {
-        _status = GetComponent<MobStatus>();
+        _status = GetComponent<zako_Status>();
     }
 
     public void AttackIfPossible()
@@ -41,7 +41,7 @@ public class MobAttack : MonoBehaviour
     /// <param name="collider"></param>
     public void OnHitAttack(Collider collider)
     {
-        var targetMob = collider.GetComponent<MobStatus>();
+        var targetMob = collider.GetComponent<zako_Status>();
         if (null == targetMob) return;
 
         //プレイヤーにダメージを与える

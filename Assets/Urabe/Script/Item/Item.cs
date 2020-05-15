@@ -35,6 +35,7 @@ public class Item : MonoBehaviour
             }); 
     }
 
+    //プレイヤーが鍵を取得したら
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;

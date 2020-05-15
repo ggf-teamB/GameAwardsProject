@@ -757,7 +757,7 @@ MonoBehaviour:
   onTriggerStay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 52680665137529751}
+      - m_Target: {fileID: 0}
         m_MethodName: OnDetectObject
         m_Mode: 0
         m_Arguments:

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class PlayerStatus : MobStatus
+public class PlayerStatus : zako_Status
 {
     //0000
 }

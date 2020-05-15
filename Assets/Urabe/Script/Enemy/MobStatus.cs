@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 //Mobの状態管理スクリプト
-public class MobStatus : MonoBehaviour
+public class zako_Status : MonoBehaviour
 {
 
     //状態の定義

@@ -14,7 +14,7 @@ namespace CountDownHP
 
         //HP
         [SerializeField]
-        public int HP;
+        public int HP = 0;
 
         //HP表示テキスト/表示される値
         private Text hpText;
@@ -70,16 +70,14 @@ namespace CountDownHP
 
             }
         }
-
+     
         // Update is called once per frame
         void Update()
         {
-
-
             //HPが0以下になったら敵を削除
             if (HP <= 0)
             {
-                Destroy(gameObject);
+               Destroy(this.gameObject);
             }
         }
         //　ダメージ値を追加するメソッド

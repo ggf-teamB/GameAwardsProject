@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840461326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8ed528bf99a5084b913072fcee91f34, type: 3}
   m_Name: 
@@ -1645,7 +1645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1079024482
 Camera:
   m_ObjectHideFlags: 0
@@ -6991,6 +6991,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700705043}
   m_CullTransparentMesh: 0
+--- !u!114 &1789088136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5914852924352264519, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+    type: 3}
+  m_PrefabInstance: {fileID: 3453366017621223971}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79df30c911ba2f544987d51da690da58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789416968
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,8 +7374,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033166475}
-  m_LocalRotation: {x: -0.05959297, y: 0.3349959, z: 0.02124872, w: 0.94009304}
-  m_LocalPosition: {x: 98.705284, y: 43.556313, z: -30.788475}
+  m_LocalRotation: {x: 0.19595078, y: 0.45573112, z: 0.103582874, w: -0.8620807}
+  m_LocalPosition: {x: 2.6311793, y: 45.33059, z: -3.9434943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7461,6 +7473,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 52680665137529738, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: attackCollider
+      value: 
+      objectReference: {fileID: 992345625}
+    - target: {fileID: 52680665137529748, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 52680665137529749, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52680665137529750, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52680665448313399, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 52680666013056712, guid: 3353b79b18b4ecd4d9a151380d57ec11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7474,7 +7511,7 @@ PrefabInstance:
     - target: {fileID: 52680666013056712, guid: 3353b79b18b4ecd4d9a151380d57ec11,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.21
+      value: 11.24
       objectReference: {fileID: 0}
     - target: {fileID: 52680666013056712, guid: 3353b79b18b4ecd4d9a151380d57ec11,
         type: 3}
@@ -7519,6 +7556,22 @@ PrefabInstance:
     - target: {fileID: 4132833494738310869, guid: 3353b79b18b4ecd4d9a151380d57ec11,
         type: 3}
       propertyPath: dropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132833494738310869, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 5084719442908362311, guid: cc5de5e674870ca479a40105f80555ad,
+        type: 3}
+    - target: {fileID: 4132833494738310869, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: _status
+      value: 
+      objectReference: {fileID: 1789088136}
+    - target: {fileID: 4132833494738310869, guid: 3353b79b18b4ecd4d9a151380d57ec11,
+        type: 3}
+      propertyPath: number
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5914852924352264519, guid: 3353b79b18b4ecd4d9a151380d57ec11,
