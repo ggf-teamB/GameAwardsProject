@@ -5,15 +5,29 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    //メッセージ表示させる
+    //表示させるメッセージエリア
     [SerializeField] GameObject message;
+
+    [SerializeField] GameObject playerObject;
+
+    [SerializeField] Player player;
+
+    private void Start()
+    {
+        //playerにPlayerクラスを代入させる
+        player = playerObject.GetComponent<Player>();
+    }
+
 
     //イベントに参加したとき
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            message.SetActive(true);
+            if(player.isKey == false)
+            {
+                message.SetActive(true);
+            }
         }
     }
 

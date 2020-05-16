@@ -12,6 +12,20 @@ public class Item : MonoBehaviour
 
     [SerializeField] private ItemType type;
 
+    //プレイヤーのゲームオブジェクト
+    [SerializeField] private GameObject playerObject;
+
+    //プレイヤークラス
+    [SerializeField] private Player player;
+
+    private void Start()
+    {
+        //Playerタグが付いてるオブジェクトを取得する
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        //playerにPlayerクラスを代入する
+        player = playerObject.GetComponent<Player>();
+    }
+
     //初期化処理
     public void Initialize()
     {
@@ -39,6 +53,8 @@ public class Item : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+
+        player.GetKey();
 
         //オブジェクトの破棄
         Destroy(gameObject);

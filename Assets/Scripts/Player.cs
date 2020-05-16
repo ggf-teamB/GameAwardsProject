@@ -170,6 +170,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    //鍵の取得
+    public void GetKey()
+    {
+        //鍵を所持してる状態にする
+        isKey = true;
+    }
+
     //当たり判定処理
     void OnCollisionEnter(Collision other)
     {
