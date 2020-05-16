@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject stManager;
 
-    private St01_Manager st01;
+    private Game game;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
         isKey = false;
 
-        st01 = stManager.GetComponent<St01_Manager>();
+        game = stManager.GetComponent<Game>();
     }
 
     // Update is called once per frame
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
         //体力がなくなった場合
         if(durability <= 0)
         {
-            st01.GameOver();
+            game.GameOver();
         }
     }
 
