@@ -73,6 +73,9 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //timeScaleが0fの時は以下の処理を無視する
+        if (Mathf.Approximately(Time.timeScale, 0f)) return;
+
         //水発射フラグをUIWatarGaugeクラスから取得
         WaterLaunch = UIWatarGauge.WaterLaunch;
 

@@ -9,6 +9,7 @@ TagManager:
   - bullet
   - Field
   - Item
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Enemy
   - WaterFall
   - Field
-  - 
+  - miniMap
   - 
   - 
   - 
