@@ -10,6 +10,8 @@ TagManager:
   - Field
   - Item
   - GameManager
+  - MessageUI
+  - System
   layers:
   - Default
   - TransparentFX

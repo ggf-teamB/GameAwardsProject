@@ -18,12 +18,27 @@ public class Item : MonoBehaviour
     //プレイヤークラス
     [SerializeField] private Player player;
 
+    //システムオブジェクト
+    [SerializeField] private GameObject systemObject;
+
+    //メッセージマネージャークラス
+    [SerializeField] private MessageManager mManager;
+
+    private string getKeyMessage = "鍵を取得しました";
+
     private void Start()
     {
         //Playerタグが付いてるオブジェクトを取得する
         playerObject = GameObject.FindGameObjectWithTag("Player");
+
         //playerにPlayerクラスを代入する
         player = playerObject.GetComponent<Player>();
+
+        //Systemタグが付いてるオブジェクトを取得する
+        systemObject = GameObject.FindGameObjectWithTag("System");
+
+        //mManagerにMessageManagerクラスを代入する
+        mManager = systemObject.GetComponent<MessageManager>();
     }
 
     //初期化処理
@@ -55,6 +70,8 @@ public class Item : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         player.GetKey();
+
+        mManager.SetMessage(getKeyMessage);
 
         //オブジェクトの破棄
         Destroy(gameObject);
