@@ -11,7 +11,7 @@ public class UI_Rotacamera : MonoBehaviour
 
     private void Update()
     {
-        //Loteupdate();
+        Loteupdate();
     }
 
     void Loteupdate()
