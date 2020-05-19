@@ -2,8 +2,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-//[RequireComponent(typeof(NavMeshAgent))]
-public class EnemyStatus : zako_Status
+[RequireComponent(typeof(NavMeshAgent))]
+public class EnemyStatus : MobStatus
 {
     private NavMeshAgent _agent;
 

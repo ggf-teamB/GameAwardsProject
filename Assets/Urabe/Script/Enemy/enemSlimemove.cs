@@ -9,7 +9,7 @@ public class enemSlimemove : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
 
-    public float speed = 1f; 　　　　　//徘徊してるときの敵の速さ
+    /*public float speed = 1f; 　　　　　//徘徊してるときの敵の速さ
     public float rotationspeed = 1f; 　//徘徊途中の方向転換で、体を目標位置に向ける回転速度
     public float posrange = 50f;       //ランダムで目標位置を決めるときの範囲
     private Vector3 targetpos;         //目標位置の位置（具体的な座標）
@@ -28,10 +28,10 @@ public class enemSlimemove : MonoBehaviour
         if (targetdistance < changetarget) targetpos = GetRandomPosition(transform.position);
 
         Quaternion targetRotation = Quaternion.LookRotation(targetpos - transform.position);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationspeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationspeed);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         //Debug.Log("haikai");
-    }
+    }*/
 
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
@@ -39,28 +39,22 @@ public class enemSlimemove : MonoBehaviour
 
     private void Start()
     {
-        targetpos = GetRandomPosition(transform.position);
+        //targetpos = GetRandomPosition(transform.position);
         _agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
-    {
-        targetdistance = Vector3.SqrMagnitude(transform.position - targetpos);
-        haikai();
-        //_agent.destination = Player.transform.position;
-    }
 
     //CollisionDetectorのonTriggerStayにセットし、衝突判定を起こす
     public void OnDetectObject(Collider collider)
     {
-        if(!_status.IsMovable)
+        /*if(!_status.IsMovable)
         {
             _agent.isStopped = true;
             return;
-        }
+        }*/
 
         //検知したオブェクトに「player」のタグがついていれば、そのオブェクトを追いかける
-        if(collider.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
             //自身とプレイヤーの座標差分を計算
             var positionDiff = collider.transform.position - transform.position;
