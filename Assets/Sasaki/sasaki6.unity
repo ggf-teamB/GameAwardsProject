@@ -1822,10 +1822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa772abaf65db74489872055df45ee37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: {fileID: 1208112235}
   playerObject: {fileID: 992345623}
   player: {fileID: 0}
   systemObject: {fileID: 1789416968}
+  mManager: {fileID: 0}
   game: {fileID: 0}
 --- !u!65 &916336008
 BoxCollider:

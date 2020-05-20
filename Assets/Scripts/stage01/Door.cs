@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    //表示させるメッセージエリア
-    [SerializeField] GameObject message;
-
     //プレイヤーオブジェクト
     [SerializeField] GameObject playerObject;
 
@@ -17,13 +14,20 @@ public class Door : MonoBehaviour
     //システムオブジェクト
     [SerializeField] GameObject systemObject;
 
+    //メッセージマネージャークラス
+    [SerializeField] MessageManager mManager;
+
     //Gameクラス
     [SerializeField] Game game;
+
+    private string notKeyMessage = "この扉を開けるには鍵が必要なのだ！";
 
     private void Start()
     {
         //playerにPlayerクラスを代入させる
         player = playerObject.GetComponent<Player>();
+
+        mManager = systemObject.GetComponent<MessageManager>();
 
         game = systemObject.GetComponent<Game>();
     }
@@ -41,7 +45,7 @@ public class Door : MonoBehaviour
             }
             else
             {
-                message.SetActive(true);
+                mManager.SetMessage(notKeyMessage);
             }
         }
     }
@@ -51,7 +55,7 @@ public class Door : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            message.SetActive(false);
+            mManager.SetHidden();
         }
     }
 }

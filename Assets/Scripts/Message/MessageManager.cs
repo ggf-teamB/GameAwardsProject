@@ -50,6 +50,7 @@ public class MessageManager : MonoBehaviour
         }
     }
 
+    //テキストをセットする
     public void SetMessage(string message)
     {
         messageUI.SetActive(true);
@@ -57,5 +58,14 @@ public class MessageManager : MonoBehaviour
         messgaeText.text = message;
 
         isMessage = true;
+    }
+
+    public void SetHidden()
+    {
+        messageUI.SetActive(false);
+
+        isMessage = false;
+
+        hiddenTime = 0f;
     }
 }
