@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
 
         //プレイヤーの生死
         Player_Dead();
+
     }
 
     //プレイヤーの移動
