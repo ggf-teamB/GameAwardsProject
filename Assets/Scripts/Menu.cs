@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public int clearNum = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,20 +21,27 @@ public class Menu : MonoBehaviour
     //シーンをステージ１に変更する
     public void First_Stage()
     {
-        SceneManager.LoadScene("Game_St01");
+        if (clearNum >= 0)
+        {
+            SceneManager.LoadScene("Game_St01");
+        }
     }
 
     //シーンをステージ２に変更する
     public void Second_Stage()
     {
-        SceneManager.LoadScene("Game_St02");
+        if (clearNum >= 1)
+        {
+            SceneManager.LoadScene("Game_St02");
+        }
     }
 
     //シーンをステージ3に変更する
     public void Third_Stage()
     {
-        SceneManager.LoadScene("Game_St03");
+        if (clearNum >= 2)
+        {
+            SceneManager.LoadScene("Game_St03");
+        }
     }
-
-
 }
