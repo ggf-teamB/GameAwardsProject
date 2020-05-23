@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 //Mobの状態管理スクリプト
-public class zako_Status : MonoBehaviour
+public class MobStatus : MonoBehaviour
 {
 
     //状態の定義
     protected enum StateEnum
-    { 
+    {
         Normal,  //通常
         Attack,  //攻撃中
         Die      //死亡
@@ -22,10 +22,10 @@ public class zako_Status : MonoBehaviour
     public float LifeMax => LifeMax;
     public float Life => _life;
 
-    [SerializeField] private float lifeMax = 10;  //ライフの最大値
+    [SerializeField] public float lifeMax = 100;  //ライフの最大値
     protected Animator _animator;
     protected StateEnum _state = StateEnum.Normal;  //Mob状態
-    private float _life; //現在のライフ値（ヒットポイント）
+    public float _life; //現在のライフ値（ヒットポイント）
 
     protected virtual void Start()
     {
@@ -65,7 +65,7 @@ public class zako_Status : MonoBehaviour
     //Normalの状態に偏移
     public void GoToNormalStateIfPossible()
     {
-    if(_state == StateEnum.Die) return;
+        if (_state == StateEnum.Die) return;
         _state = StateEnum.Normal;
     }
 }
