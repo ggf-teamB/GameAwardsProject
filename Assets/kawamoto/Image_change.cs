@@ -19,6 +19,9 @@ public class Image_change : MonoBehaviour
     void Update()
     {    //SpriteRenderのspriteを設定済みの他のspriteに変更
 
+        //timeScaleが0fの時は以下の処理を無視する
+        if (Mathf.Approximately(Time.timeScale, 0f)) return;
+
         Debug.Log("aaaaaaaa");
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
             Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) )

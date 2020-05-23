@@ -14,10 +14,7 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Result");
-        }
+
     }
 
     //ゲームオーバーの時シーンを切り替える

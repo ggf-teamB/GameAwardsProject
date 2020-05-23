@@ -7,6 +7,7 @@ public enum GameState
 {
     Start,      //スタート時
     Playing,    //ゲーム中
+    Pause,      //中断中
     End,        //終了時
     None        //無し
 }
@@ -24,6 +25,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         SetGameState(GameState.None);
+    }
+
+    private void Update()
+    {
+        //timeScaleが０でgameStateがPause以外の時
+        if(Time.timeScale == 0f && gameState != GameState.Pause)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     //ステータス状態をセットする
@@ -45,6 +55,9 @@ public class GameManager : MonoBehaviour
             case GameState.Playing:
                 PlayingAction();
                 break;
+            case GameState.Pause:
+                PauseAction();
+                break;
             case GameState.End:
                 EndAction();
                 break;
@@ -63,13 +76,18 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void EndAction()
+    void PauseAction()
     {
-
+        Time.timeScale = 0f;
     }
 
-    private void Update()
+    void EndAction()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_STANDALONE
+        UnityEngine.Application.Quit();
+        #endif
 
     }
 

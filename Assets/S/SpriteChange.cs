@@ -34,6 +34,9 @@ public class SpriteChange : MonoBehaviour
     //ゲーム実行中に毎フレーム実行する処理
     void Update()
     {
+
+        if (Mathf.Approximately(Time.timeScale, 0f)) return;
+
         //shootingから値を取得
         WatarAnimationSpeed = Shooting.WatarAnimationSpeed;
 
