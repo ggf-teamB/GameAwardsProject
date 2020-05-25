@@ -13,9 +13,6 @@ public class Player : MonoBehaviour
     //キャラクターコントローラーを動かす為のVector3型の変数
     [SerializeField] private Vector3 velocity;
 
-    //ジャンプ力
-    [SerializeField] public float jumpPower;
-
     //移動速度
     [SerializeField] private float moveSpeed;
 
@@ -36,6 +33,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject stManager;
 
+    //Gameクラス
     private Game game;
 
     // Start is called before the first frame update
@@ -71,7 +69,7 @@ public class Player : MonoBehaviour
     //プレイヤーの移動
     void Player_Move()
     {
-
+        //Shiftキーが入力されたとき
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = ranSpeed;
@@ -171,19 +169,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    //プレイヤーのダメージ処理
+    public void Get_Damage(int damage)
+    {
+        durability -= damage;
+    }
+
     //鍵の取得
     public void GetKey()
     {
         //鍵を所持してる状態にする
         isKey = true;
-    }
-
-    //当たり判定処理
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.tag == "Enemy")
-        {
-            durability -= 10;
-        }
     }
 }
