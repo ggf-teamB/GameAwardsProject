@@ -55,6 +55,9 @@ public class Shooting : MonoBehaviour
     //二個目のマウス座標を取得していれる
     private Vector3 chack;
 
+    //Animator型の変数
+    private Animator animator2;
+
     // Use this for initialization
     void Start()
     {
@@ -68,6 +71,9 @@ public class Shooting : MonoBehaviour
         chackflg = false;
         cnt = 0;
         chackcnt = 0;
+
+        //Animatorを変数に代入
+        animator2 = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -98,8 +104,20 @@ public class Shooting : MonoBehaviour
         //左クリックが押されている状態なら
         if (Input.GetMouseButtonDown(0))
         {
+            //Gun_poseをtrueにする   Unityちゃんが銃を構える
+            animator2.SetBool("isGunpose", true);
+
             MouseLeftFlg = true;
             MouseRightFlg = false;
+
+
+        }
+        else
+        {
+            //Gun_poseをtrueにする   Unityちゃんが銃を構える
+            animator2.SetBool("isGunpose", false);
+
+
         }
         //左クリックが離されている状態なら
         if (Input.GetMouseButtonUp(0))
