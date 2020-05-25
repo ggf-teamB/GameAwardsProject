@@ -9,6 +9,7 @@ public class MobAttack : MonoBehaviour
     [SerializeField] private Collider attackCollider;
 
     private MobStatus _status;
+    private Player player;
 
     // Start is called before the first frame update
     private void Start()
@@ -37,15 +38,10 @@ public class MobAttack : MonoBehaviour
         attackCollider.enabled = true;
     }
 
-    //attackColliderが攻撃対象にHitしたときに呼ぶ
-    /// <param name="collider"></param>
-    public void OnHitAttack(Collider collider)
+    //ダメージ処理
+    public void Get_Damage(int damage)
     {
-        var targetMob = collider.GetComponent<MobStatus>();
-        if (null == targetMob) return;
-
-        //プレイヤーにダメージを与える
-        targetMob.Damage(10);
+        //durability -= damage;
     }
 
     //攻撃の終了時に呼ばれます
