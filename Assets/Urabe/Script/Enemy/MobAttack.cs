@@ -38,6 +38,14 @@ public class MobAttack : MonoBehaviour
         attackCollider.enabled = true;
     }
 
+    //attackColliderが攻撃対象にHitしたときに呼ぶ
+    /// <param name="collider"></param>
+    public void OnHitAttack(Collider collider)
+    {
+        var targetMob = collider.GetComponent<MobStatus>();
+        if (null == targetMob) return;
+    }
+
     //ダメージ処理
     public void Get_Damage(int damage)
     {

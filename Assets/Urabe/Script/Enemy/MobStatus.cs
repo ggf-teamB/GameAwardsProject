@@ -8,8 +8,9 @@ public class MobStatus : MonoBehaviour
     protected enum StateEnum
     {
         Normal,  //通常
-        Attack,  //攻撃中
-        Die      //死亡
+        Attack,  //攻撃中 
+        Die,      //死亡
+        BasicAttack
     }
 
     //移動可能かどうか
@@ -60,6 +61,9 @@ public class MobStatus : MonoBehaviour
 
         _state = StateEnum.Attack;
         _animator.SetTrigger("Attack");
+        _state = StateEnum.BasicAttack;
+        _animator.SetTrigger("BasicAttack");
+        //_animator.SetTrigger("TailAttack");
     }
 
     //Normalの状態に偏移
