@@ -39,7 +39,7 @@ public class Door : MonoBehaviour
         //Playerの時処理を行う
         if (invasion.tag == "Player")
         {
-            if (player.isKey)
+            if (player.IsKey == true)
             {
                 game.GameClear();
             }

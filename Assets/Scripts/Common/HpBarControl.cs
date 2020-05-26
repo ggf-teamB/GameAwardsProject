@@ -5,32 +5,40 @@ using UnityEngine.UI;
 
 public class HpBarControl : MonoBehaviour
 {
+    //プレイヤーのオブジェクト
+    [SerializeField] private GameObject playerObj;
 
-    [SerializeField] GameObject player;     //プレイヤー
-    MobStatus LifeMax;                        //PlayerHpクラス
-    [SerializeField] Slider hpSlider;       //Slider
-    private float hp;                         //プレイヤーの体力
+    //プレイヤークラス
+    [SerializeField] private Player player;
+
+    //HPバーのスライダー
+    [SerializeField] private Slider hpBer;
+
+    //HPバーの適用体力
+    private int hp;
 
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerHpを代入
-        LifeMax = player.GetComponent<MobStatus>();
+        //プレイヤークラスを代入
+        player = playerObj.GetComponent<Player>();
 
         //プレイヤーの最大体力を代入する
-        hp = LifeMax._life;
+        hp = player.MaxHp;
 
-        //Sliderのvalueの値を最大HPにする
-        hpSlider.value = hp;
+        //HPバーのvalueに最大体力を適用
+        hpBer.value = hp;
+
+        Debug.Log(hp);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //nowHpにplayerHp.hpを代入する
-        float nowHp = LifeMax._life;
+        //現在の体力をプレイヤークラスから取得する
+        int nowHp = player.Durability;
 
-        //SliderのvalueのnowHpにする
-        hpSlider.value = nowHp;
+        //HPバーに現在の体力を反映させる
+        hpBer.value = nowHp;
     }
 }

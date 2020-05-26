@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //characterController型の変数
-    private CharacterController characterController;
+    //システムオブジェクト
+    [SerializeField] private GameObject systemObj;
 
-    //Animator型の変数
-    private Animator animator;
+    //ゲームクラス
+    [SerializeField] private Game game;
 
     //キャラクターコントローラーを動かす為のVector3型の変数
     [SerializeField] private Vector3 velocity;
@@ -17,42 +17,64 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     //歩く速度
-    [SerializeField] private float walkSpeed = 5;
+    [SerializeField] private float walkSpeed;
 
     //走る速度
     [SerializeField] private float ranSpeed;
 
     //最大体力
-    [SerializeField] public int maxHp;
+    [SerializeField] private int maxHp;
 
     //体力
-    [SerializeField] public int durability;
+    [SerializeField] private int durability;
 
     //鍵を持っているかどうか
-    [SerializeField] public bool isKey;
+    [SerializeField] private bool isKey;
 
-    [SerializeField] private GameObject stManager;
+    //characterController型の変数
+    private CharacterController characterController;
 
-    //Gameクラス
-    private Game game;
+    //Animator型の変数
+    private Animator animator;
+
+    //最大体力のプロパティ
+    public int MaxHp
+    {
+        get { return this.maxHp; }
+    }
+
+    //体力のプロパティ
+    public int Durability
+    {
+        get { return this.durability; }
+    }
+
+    //鍵所持フラグのプロパティ
+    public bool IsKey
+    {
+        get { return this.isKey; }
+    }
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        walkSpeed = 5f;
+
+        ranSpeed = walkSpeed * 1.5f;
+
+        //現在の体力を最大体力に設定する
+        durability = maxHp;
+
+        isKey = false;
+
+        //ゲームクラスを代入
+        game = systemObj.GetComponent<Game>();
+
         //characterControllerを変数に代入
         characterController = GetComponent<CharacterController>();
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
-
-        //現在の体力を最大体力に設定する
-        durability = maxHp;
-
-        ranSpeed = walkSpeed * 1.5f;
-
-        isKey = false;
-
-        game = stManager.GetComponent<Game>();
     }
 
     // Update is called once per frame
@@ -63,7 +85,6 @@ public class Player : MonoBehaviour
 
         //プレイヤーの生死
         Player_Dead();
-
     }
 
     //プレイヤーの移動
