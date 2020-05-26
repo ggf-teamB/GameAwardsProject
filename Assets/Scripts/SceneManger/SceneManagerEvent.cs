@@ -24,8 +24,6 @@ public class SceneManagerEvent : MonoBehaviour
     //シーンが切り替わる時に処理を行う
     void SceneLoaded(Scene nextScene,LoadSceneMode mode)
     {
-        Debug.Log(nextScene.name);
-
         //ゲームマネージャーのゲームステータスをセットする
         gameManager.SceneChangeSetGameState();
     }
