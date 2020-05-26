@@ -29,7 +29,6 @@ public class MessageManager : MonoBehaviour
 
         //初期化
         isMessage = false;
-        isTutorial = false;
         hiddenTime = 0f;
     }
 
