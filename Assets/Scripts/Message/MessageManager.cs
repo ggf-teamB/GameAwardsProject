@@ -15,7 +15,7 @@ public class MessageManager : MonoBehaviour
     [SerializeField] private float hiddenTime;
 
     //表示するテキスト
-    private Text messgaeText;
+    private Text messageText;
 
     //非表示にする秒数
     private const float hidden = 3f;
@@ -24,11 +24,12 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         //テキストを代入する
-        messgaeText = messageUI.GetComponentInChildren<Text>();
-        messgaeText.text = "";
+        messageText = messageUI.GetComponentInChildren<Text>();
+        messageText.text = "";
 
         //初期化
         isMessage = false;
+        isTutorial = false;
         hiddenTime = 0f;
     }
 
@@ -55,7 +56,7 @@ public class MessageManager : MonoBehaviour
     {
         messageUI.SetActive(true);
 
-        messgaeText.text = message;
+        messageText.text = message;
 
         isMessage = true;
     }
@@ -67,5 +68,17 @@ public class MessageManager : MonoBehaviour
         isMessage = false;
 
         hiddenTime = 0f;
+    }
+
+    public void SetTutorialMessage(string message)
+    {
+        messageUI.SetActive(true);
+
+        messageText.text = message;
+    }
+
+    public void HiddenTutorial()
+    {
+        messageUI.SetActive(false);
     }
 }
