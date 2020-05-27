@@ -137,7 +137,7 @@ public class Shooting : MonoBehaviour
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
-        if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >=20 )
+        if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >=30 )
         {
 
             //カウントアップ

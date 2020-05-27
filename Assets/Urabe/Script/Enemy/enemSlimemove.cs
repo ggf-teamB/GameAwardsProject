@@ -10,6 +10,7 @@ public class enemSlimemove : MonoBehaviour
     [SerializeField] private LayerMask raycastLayerMask;
     [SerializeField] private float Speed = 20;
 
+
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
