@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Image_Change : MonoBehaviour
+public class Slime_work_SE : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
