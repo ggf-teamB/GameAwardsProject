@@ -3,6 +3,7 @@ using UnityEngine;
 
 //攻撃制御クラス
 [RequireComponent(typeof(MobStatus))]
+
 public class MobAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 1f;  //攻撃クールダウン
@@ -42,14 +43,9 @@ public class MobAttack : MonoBehaviour
     /// <param name="collider"></param>
     public void OnHitAttack(Collider collider)
     {
-        var targetMob = collider.GetComponent<MobStatus>();
+        var targetMob = collider.GetComponent<Player>();
         if (null == targetMob) return;
-    }
-
-    //ダメージ処理
-    public void Get_Damage(int damage)
-    {
-        //durability -= damage;
+        targetMob.Get_Damage(10);
     }
 
     //攻撃の終了時に呼ばれます

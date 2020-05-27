@@ -40,7 +40,7 @@ public class MobStatus : MonoBehaviour
     }
 
     //指定地のダメージを受ける
-    /// <param name="damage"></param>
+    /*/// <param name="damage"></param>
     public void Damage(int damage)
     {
         if (_state == StateEnum.Die) return;
@@ -52,7 +52,7 @@ public class MobStatus : MonoBehaviour
         _animator.SetTrigger("Die");
 
         OnDie();
-    }
+    }*/
 
     //攻撃中の状態に偏移
     public void GoToAttackStateIfPossible()
