@@ -5,7 +5,8 @@ using UnityEngine;
 public class Wavex: MonoBehaviour
 {
     //public　private
-    public float limit, speed, timer;
+    public float limit, speed;
+    public static int timer;
     public bool flg;
 
     // Use this for initialization
@@ -30,6 +31,6 @@ public class Wavex: MonoBehaviour
             this.gameObject.transform.Translate(-speed, 0, 0);
             limit += speed;
         }
-        if (timer > 450) timer = 0;
+        if (timer > 2000) timer = 0;
     }
 }

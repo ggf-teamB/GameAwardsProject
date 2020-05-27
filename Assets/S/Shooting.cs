@@ -137,14 +137,14 @@ public class Shooting : MonoBehaviour
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
-        if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >=20 )
+        if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >= 20)
         {
 
             //カウントアップ
             chackcnt++;
-            
 
-            if (chackcnt == 5 )
+
+            if (chackcnt == 5)
             {
                 //弾(水)の複製
                 bullets = Instantiate(bullet) as GameObject;
@@ -173,6 +173,7 @@ public class Shooting : MonoBehaviour
                 chackcnt = 0;
 
             }
+        }
 
             //右クリックが押され続けているなら
             if (MouseRightFlg == true)
@@ -273,7 +274,5 @@ public class Shooting : MonoBehaviour
             if (WaterSpeed >= 800 && WaterSpeed < 1000) WatarAnimationSpeed = 18;
             if (WaterSpeed >= 600 && WaterSpeed < 800) WatarAnimationSpeed = 19;
             //----------
-        }
-
     }
 }

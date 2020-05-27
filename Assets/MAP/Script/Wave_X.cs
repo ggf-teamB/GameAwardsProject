@@ -29,6 +29,6 @@ public class Wave_X : MonoBehaviour
             this.gameObject.transform.Translate(speed, 0, 0);
             limit += speed;
         }
-        if (timer > 450)timer = 0;
+        if (timer > 2000)timer = 0;
     }
 }
