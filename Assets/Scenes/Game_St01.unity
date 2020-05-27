@@ -1561,6 +1561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5222e319357374995fd58084040b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemObj: {fileID: 1789416968}
+  game: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   walkSpeed: 5
@@ -1568,7 +1570,6 @@ MonoBehaviour:
   maxHp: 100
   durability: 0
   isKey: 0
-  stManager: {fileID: 992345623}
 --- !u!143 &992345625
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2389,8 +2390,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418263636}
-  m_LocalRotation: {x: 0.22292772, y: -0.7283929, z: -0.27711165, w: -0.5856246}
-  m_LocalPosition: {x: -19.08224, y: 45.892017, z: 39.720818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.74, y: 47.819996, z: 3.9499998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7738,8 +7739,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede6fc324689a864aa641555653e2ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 992345623}
-  hpSlider: {fileID: 1928206051}
+  playerObj: {fileID: 992345623}
+  player: {fileID: 0}
+  hpBer: {fileID: 1928206051}
 --- !u!114 &1789416972
 MonoBehaviour:
   m_ObjectHideFlags: 0
