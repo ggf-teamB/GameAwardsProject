@@ -18,6 +18,6 @@ public class IconControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.isKey == true) getKeyIcon.SetActive(true);
+        if (player.IsKey == true) getKeyIcon.SetActive(true);
     }
 }
