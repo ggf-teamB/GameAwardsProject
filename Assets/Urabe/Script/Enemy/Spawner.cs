@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus playerStatus;
+    [SerializeField] private Player player;
     [SerializeField] private GameObject enemyPrefab;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
                 Range(0, 360f), 0) * distanceVector;
 
             //敵を出現させたい位置を決定
-            var spawnPosition = playerStatus.transform.position +
+            var spawnPosition = player.transform.position +
                 spawnPositionFromPlayer;
 
             //指定座標から一番近いNavMeshの座標を探す
@@ -58,8 +58,8 @@ public class Spawner : MonoBehaviour
 
             //30秒待つ
             yield return new WaitForSeconds(10);
-
-            if(playerStatus.Life <= 0)
+                player.GetComponent<Player>();
+            if (player.Durability <= 0)
             {
                 //プレイヤーが倒れたらループを抜ける
                 break;

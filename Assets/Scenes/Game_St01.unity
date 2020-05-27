@@ -2008,6 +2008,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8140772863644561729, guid: 595f41ae8e5b2ab44ad4e9e1d4e548ce,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 558705872}
+    - target: {fileID: 8140772863644561729, guid: 595f41ae8e5b2ab44ad4e9e1d4e548ce,
+        type: 3}
+      propertyPath: enemypos
+      value: 
+      objectReference: {fileID: 1166201200}
     - target: {fileID: 8140772863644561734, guid: 595f41ae8e5b2ab44ad4e9e1d4e548ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2085,6 +2095,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595f41ae8e5b2ab44ad4e9e1d4e548ce, type: 3}
+--- !u!4 &1166201200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8140772863644561734, guid: 595f41ae8e5b2ab44ad4e9e1d4e548ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1166201199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254808806
 PrefabInstance:
   m_ObjectHideFlags: 0

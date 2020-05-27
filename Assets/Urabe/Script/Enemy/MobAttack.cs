@@ -4,16 +4,16 @@ using UnityEngine;
 //攻撃制御クラス
 [RequireComponent(typeof(MobStatus))]
 
+
 public class MobAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 1f;  //攻撃クールダウン
     [SerializeField] private Collider attackCollider;
-
+    [SerializeField] private int attackDamage = 10;   //敵のダメージ
     private MobStatus _status;
-    private Player player;
 
     // Start is called before the first frame update
-    private void Start()
+    public void Start()
     {
         _status = GetComponent<MobStatus>();
     }
@@ -45,7 +45,7 @@ public class MobAttack : MonoBehaviour
     {
         var targetMob = collider.GetComponent<Player>();
         if (null == targetMob) return;
-        targetMob.Get_Damage(10);
+        targetMob.Get_Damage(attackDamage);
     }
 
     //攻撃の終了時に呼ばれます

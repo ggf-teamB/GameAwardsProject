@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 
 //Mobの状態管理スクリプト
-public abstract class MobStatus : MonoBehaviour
+public abstract class DragonStatus : MonoBehaviour
 {
 
     //状態の定義
     protected enum StateEnum
     {
         Normal,  //通常
-        Attack,  //攻撃中 
+        BasicAttack,  //攻撃中 
         Die,      //死亡
-        //BasicAttack
+        //BasicBasicAttack
     }
 
     //移動可能かどうか
     public bool IsMovable => StateEnum.Normal == _state;
 
     //攻撃可能
-    public bool IsAttackable => StateEnum.Normal == _state;
-   
+    public bool IsBasicAttackable => StateEnum.Normal == _state;
+
 
 
     protected Animator _animator;
@@ -35,15 +35,15 @@ public abstract class MobStatus : MonoBehaviour
     }
 
     //攻撃中の状態に偏移
-    public void GoToAttackStateIfPossible()
+    public void GoToBasicAttackStateIfPossible()
     {
-        if (!IsAttackable) return;
+        if (!IsBasicAttackable) return;
 
-        _state = StateEnum.Attack;
-        _animator.SetTrigger("Attack");
-        //_state = StateEnum.BasicAttack;
-        //_animator.SetTrigger("BasicAttack");
-        //_animator.SetTrigger("TailAttack");
+        _state = StateEnum.BasicAttack;
+        _animator.SetTrigger("BasicAttack");
+        //_state = StateEnum.BasicBasicAttack;
+        //_animator.SetTrigger("BasicBasicAttack");
+        //_animator.SetTrigger("TailBasicAttack");
     }
 
     //Normalの状態に偏移
