@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ed528bf99a5084b913072fcee91f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatus: {fileID: 992345628}
+  playerStatus: {fileID: 0}
   enemyPrefab: {fileID: 52680665137529736, guid: 3353b79b18b4ecd4d9a151380d57ec11,
     type: 3}
 --- !u!4 &840461328
@@ -1583,8 +1583,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemObj: {fileID: 1789416968}
   tutorialObj: {fileID: 283566585}
+  stManagerObj: {fileID: 0}
   game: {fileID: 0}
   tutorial: {fileID: 0}
+  stManager: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   walkSpeed: 5
@@ -1650,20 +1652,6 @@ MonoBehaviour:
   cnt: 0
   chackcnt: 0
   chackcnt2: 0
---- !u!114 &992345628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992345623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1c0de078437f044794d3bffae930e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeMax: 100
-  _life: 0
 --- !u!1 &1012186655
 GameObject:
   m_ObjectHideFlags: 0
