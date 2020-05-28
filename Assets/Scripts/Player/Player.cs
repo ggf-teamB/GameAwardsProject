@@ -7,8 +7,14 @@ public class Player : MonoBehaviour
     //システムオブジェクト
     [SerializeField] private GameObject systemObj;
 
+    //チュートリアルオブジェクト
+    [SerializeField] private GameObject tutorialObj;
+
     //ゲームクラス
     [SerializeField] private Game game;
+
+    //チュートリアルテキストクラス
+    [SerializeField] private TutorialText tutorial;
 
     //キャラクターコントローラーを動かす為のVector3型の変数
     [SerializeField] private Vector3 velocity;
@@ -70,6 +76,9 @@ public class Player : MonoBehaviour
         //ゲームクラスを代入
         game = systemObj.GetComponent<Game>();
 
+        //チュートリアルクラスを代入
+        tutorial = tutorialObj.GetComponent<TutorialText>();
+
         //characterControllerを変数に代入
         characterController = GetComponent<CharacterController>();
 
@@ -80,6 +89,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (tutorial.Flg == true) return;
+
         //プレイヤーの移動
         Player_Move();
 
