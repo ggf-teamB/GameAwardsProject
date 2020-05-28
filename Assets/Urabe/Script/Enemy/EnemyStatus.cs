@@ -7,7 +7,7 @@ public class EnemyStatus : MobStatus
 {
     private NavMeshAgent _agent;
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
