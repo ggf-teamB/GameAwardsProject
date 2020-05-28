@@ -12,6 +12,8 @@ TagManager:
   - GameManager
   - MessageUI
   - System
+  - StageManager
+  - MiniMap
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class DDManager : MonoBehaviour
     //シーンマネージャーを格納する変数
     public GameObject sceneManager;
 
+    public GameObject stageManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,8 @@ public class DDManager : MonoBehaviour
 
         //sceneManagerを削除しないように設定する
         DontDestroyOnLoad(sceneManager);
+
+        //stageMangerを削除しないように設定する
+        DontDestroyOnLoad(stageManager);
     }
 }
