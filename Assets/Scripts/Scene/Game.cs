@@ -25,7 +25,7 @@ public class Game : MonoBehaviour
         clear_flg = false;//クリアフラグの初期化
     }
 
-  
+
     //ゲームオーバーの時シーンを切り替える
     public void GameOver()
     {
@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
         c_img.c_imgActive();//画像のアクティブ化関数の呼び出し
         clear_flg = true;//クリアフラグture
 
-        
+
     }
     private void Update()
     {
