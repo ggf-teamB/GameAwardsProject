@@ -7,8 +7,20 @@ public class Player : MonoBehaviour
     //システムオブジェクト
     [SerializeField] private GameObject systemObj;
 
+    //チュートリアルオブジェクト
+    [SerializeField] private GameObject tutorialObj;
+
+    //ステージマネージャーオブジェクト
+    [SerializeField] private GameObject stManagerObj;
+
     //ゲームクラス
     [SerializeField] private Game game;
+
+    //チュートリアルテキストクラス
+    [SerializeField] private TutorialText tutorial;
+
+    //ステージ管理クラス
+    [SerializeField] private StageManager stManager;
 
     //キャラクターコントローラーを動かす為のVector3型の変数
     [SerializeField] private Vector3 velocity;
@@ -67,24 +79,63 @@ public class Player : MonoBehaviour
 
         isKey = false;
 
+        //ステージマネージャーオブジェクト
+        stManagerObj = GameObject.FindGameObjectWithTag("StageManager");
+
+        //ステージ管理クラス
+        stManager = stManagerObj.GetComponent<StageManager>();
+
         //ゲームクラスを代入
         game = systemObj.GetComponent<Game>();
+
+        //チュートリアルクラスを代入
+        tutorial = tutorialObj.GetComponent<TutorialText>();
 
         //characterControllerを変数に代入
         characterController = GetComponent<CharacterController>();
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
+
+        Player_Spawn();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (tutorial.Flg == true) return;
+
         //プレイヤーの移動
         Player_Move();
 
         //プレイヤーの生死
         Player_Dead();
+    }
+
+    //プレイヤーのスポーンポイント
+    private void Player_Spawn()
+    {
+        //StageStateがStage_01のとき
+        if(stManager.StageState == StagesState.Stage_01)
+        {
+            this.transform.position = new Vector3(0f, 50f, 120f);
+            this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+
+        //StageStateがStage_02のとき
+        if(stManager.StageState == StagesState.Stage_02)
+        {
+            this.transform.position = new Vector3(3f, 0.4f, 75.6f);
+            this.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        }
+
+        //StageStateがStage_03のとき
+        if(stManager.StageState == StagesState.Stage_03)
+        {
+            this.transform.position = new Vector3(14.1f, 0.1f, 49.4f);
+            this.transform.rotation = Quaternion.Euler(0f, 113.5f, 0f);
+        }
     }
 
     //プレイヤーの移動

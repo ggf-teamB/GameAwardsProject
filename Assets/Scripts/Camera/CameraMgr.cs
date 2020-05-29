@@ -7,6 +7,10 @@ public class CameraMgr : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    [SerializeField] private GameObject tutorialObj;
+
+    [SerializeField] private TutorialText tutorial;
+
     Vector3 roteuler;
 
     Vector3 playerRot;
@@ -20,6 +24,8 @@ public class CameraMgr : MonoBehaviour
             player.transform.localEulerAngles.y,
             player.transform.localEulerAngles.z);
 
+        tutorial = tutorialObj.GetComponent<TutorialText>();
+
     }
 
     // Update is called once per frame
@@ -27,6 +33,8 @@ public class CameraMgr : MonoBehaviour
     {
         //timeScaleが0fの時は以下の処理を無視する
         if (Mathf.Approximately(Time.timeScale, 0f)) return;
+
+        if (tutorial.Flg == true) return;
 
         float X_Rotation = Input.GetAxis("Mouse X");
         float Y_Rotation = Input.GetAxis("Mouse Y");
