@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MobStatus))]
+
 public class RandomBehaviour : StateMachineBehaviour
 {
     int hashRandom = Animator.StringToHash("random");

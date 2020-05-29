@@ -31,33 +31,52 @@ public abstract class MobStatus : MonoBehaviour
     protected virtual void OnDie()
     {
     }
+
     /*_state = StateEnum.random;
                 _animator.GetInteger(Random.Range(0, 1));
                 Animator.StringToHash("random");*/
     //攻撃中の状態に偏移
-    public void GoToAttackStateIfPossible()
+    /*public void GoToAttackStateIfPossible()
     {
-        int nunber = _animator.GetInteger(Random.Range(0, 1));
-        switch (nunber)
+        int random = Animator.StringToHash("random");
+          random = _animator.GetInteger(Random.Range(0, 1));
+        switch (random)
         {
             case 0:
                 if (!IsAttackable) return;
+                
                 _state = StateEnum.Attack;
+                Animator.StringToHash("Attack");
+                //_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
                 _animator.SetTrigger("Attack");
-                break;
+        break;
 
-            case 1:
-                if (!IsAttackable) return;
-                _state = StateEnum.Attack2;
-                _animator.SetTrigger("Attack2");
-                break;
+        case 1:
+            if (!IsAttackable) return;
+            _state = StateEnum.Attack2;
+            Animator.StringToHash("Attack2");
+            _animator.SetTrigger("Attack2");
+            break;
         }
 
-    }
-   
+    }*/
 
-    //Normalの状態に偏移
-    public void GoToNormalStateIfPossible()
+    public void GoToAttackStateIfPossible()
+    {
+        if (!IsAttackable) return;
+
+         //_animator.GetInteger(Random.Range(0, 1));
+
+        _state = StateEnum.Attack;
+        //Animator.StringToHash("Attack");
+        //_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
+        _animator.SetInteger("random", (Random.Range(0, 1)));
+        _animator.SetTrigger("Attack");
+         //Int
+    }
+
+        //Normalの状態に偏移
+        public void GoToNormalStateIfPossible()
     {
         if (_state == StateEnum.Die) return;
         _state = StateEnum.Normal;
