@@ -62,6 +62,11 @@ public class Shooting : MonoBehaviour
     //Animator型の変数
     private Animator animator;
 
+    public AudioClip audioClip;
+    AudioSource audioSource;
+
+
+
 
     // Use this for initialization
     void Start()
@@ -81,6 +86,8 @@ public class Shooting : MonoBehaviour
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
 
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = audioClip;
 
 
     }
@@ -105,6 +112,8 @@ public class Shooting : MonoBehaviour
         {
             MouseRightFlg = true;
         }
+      
+        
         //右クリックが離されている状態なら
         if (Input.GetMouseButtonUp(1))
         {
@@ -122,7 +131,14 @@ public class Shooting : MonoBehaviour
             MouseLeftFlg = true;
             MouseRightFlg = false;
 
+
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GetComponent<AudioSource>().Play();  // 効果音を鳴らす
+        }
+
 
         //左クリックが離されている状態なら
         if (Input.GetMouseButtonUp(0))
@@ -134,6 +150,9 @@ public class Shooting : MonoBehaviour
             WaterConsumption = false;
 
             chackcnt2 = 0;
+
+            GetComponent<AudioSource>().Stop();  // 効果音を鳴らす
+
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
@@ -143,6 +162,7 @@ public class Shooting : MonoBehaviour
             //カウントアップ
             chackcnt++;
 
+          
 
             if (chackcnt == 5)
             {
@@ -171,6 +191,7 @@ public class Shooting : MonoBehaviour
 
                 //カウントリセット
                 chackcnt = 0;
+
 
             }
         }
