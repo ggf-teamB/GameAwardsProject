@@ -9,7 +9,7 @@ public class CameraMgr : MonoBehaviour
 
     [SerializeField] private GameObject tutorialObj;
 
-    [SerializeField] private TutorialText tutorial;
+    [SerializeField] private STText stText;
 
     Vector3 roteuler;
 
@@ -24,7 +24,7 @@ public class CameraMgr : MonoBehaviour
             player.transform.localEulerAngles.y,
             player.transform.localEulerAngles.z);
 
-        tutorial = tutorialObj.GetComponent<TutorialText>();
+        stText = tutorialObj.GetComponent<STText>();
 
     }
 
@@ -34,7 +34,7 @@ public class CameraMgr : MonoBehaviour
         //timeScaleが0fの時は以下の処理を無視する
         if (Mathf.Approximately(Time.timeScale, 0f)) return;
 
-        if (tutorial.Flg == true) return;
+        if (stText.Flg == true) return;
 
         float X_Rotation = Input.GetAxis("Mouse X");
         float Y_Rotation = Input.GetAxis("Mouse Y");

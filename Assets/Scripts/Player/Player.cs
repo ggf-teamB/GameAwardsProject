@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Game game;
 
     //チュートリアルテキストクラス
-    [SerializeField] private TutorialText tutorial;
+    [SerializeField] private STText stText;
 
     //ステージ管理クラス
     [SerializeField] private StageManager stManager;
@@ -88,8 +88,7 @@ public class Player : MonoBehaviour
         //ゲームクラスを代入
         game = systemObj.GetComponent<Game>();
 
-        //チュートリアルクラスを代入
-        tutorial = tutorialObj.GetComponent<TutorialText>();
+        stText = tutorialObj.GetComponent<STText>();
 
         //characterControllerを変数に代入
         characterController = GetComponent<CharacterController>();
@@ -103,8 +102,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (tutorial.Flg == true) return;
+        if (stText.Flg == true) return;
 
         //プレイヤーの移動
         Player_Move();
