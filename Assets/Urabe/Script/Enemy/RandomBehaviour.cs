@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[RequireComponent(typeof(MobStatus))]
+﻿using UnityEngine;
 
 public class RandomBehaviour : StateMachineBehaviour
 {
-    int hashRandom = Animator.StringToHash("random");
+    private int hashRandom = Animator.StringToHash("random");
 
-    override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
+    public void OnStateEnter(Animator animator, int stateMachinePathHash)
     {
-        animator.SetInteger(hashRandom, Random.Range(0, 1));
+        animator.SetInteger(hashRandom, Random.Range(0, 2));
     }
 }

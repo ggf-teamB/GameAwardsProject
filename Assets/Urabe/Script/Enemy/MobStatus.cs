@@ -68,11 +68,12 @@ public abstract class MobStatus : MonoBehaviour
          //_animator.GetInteger(Random.Range(0, 1));
 
         _state = StateEnum.Attack;
+        _animator.SetTrigger("Attack");
         //Animator.StringToHash("Attack");
         //_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
-        _animator.SetInteger("random", (Random.Range(0, 1)));
-        _animator.SetTrigger("Attack");
-         //Int
+        // _animator.SetInteger("random", (Random.Range(0, 1)));
+
+        //Int
     }
 
         //Normalの状態に偏移
