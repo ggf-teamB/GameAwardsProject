@@ -6605,7 +6605,7 @@ MonoBehaviour:
   cnt: 0
   chackcnt: 0
   chackcnt2: 0
-  tutorialtext: {fileID: 0}
+  tutorialtext: {fileID: 1399298691}
   alg: 0
 --- !u!114 &646199882
 MonoBehaviour:
@@ -13265,6 +13265,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e7abb179b0030445a41a2b93c0253ae, type: 3}
+--- !u!114 &1399298691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3465984679008089963, guid: 7e7abb179b0030445a41a2b93c0253ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399298690}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914323862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3655e2d9a4052474da2cf6cf6ade6267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1408008332
 GameObject:
   m_ObjectHideFlags: 0

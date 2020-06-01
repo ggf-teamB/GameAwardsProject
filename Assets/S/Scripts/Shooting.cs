@@ -62,7 +62,7 @@ public class Shooting : MonoBehaviour
     //Animator型の変数
     private Animator animator;
 
-    [SerializeField] TutorialText tutorialtext;
+    [SerializeField] STText tutorialtext;
 
     public bool alg;
 

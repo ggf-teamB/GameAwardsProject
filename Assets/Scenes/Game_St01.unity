@@ -1710,7 +1710,7 @@ MonoBehaviour:
   cnt: 0
   chackcnt: 0
   chackcnt2: 0
-  tutorialtext: {fileID: 0}
+  tutorialtext: {fileID: 4942811651126840895}
   alg: 0
 --- !u!114 &992345628
 MonoBehaviour:
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 992345623}
   tutorialObj: {fileID: 4942811651126840894}
-  tutorial: {fileID: 0}
+  stText: {fileID: 0}
 --- !u!1 &1051463458
 GameObject:
   m_ObjectHideFlags: 0
@@ -8502,8 +8502,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033166475}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.74, y: 47.819996, z: 3.9499998}
+  m_LocalRotation: {x: 0.035039235, y: 0.1431211, z: 0.005061831, w: -0.9890718}
+  m_LocalPosition: {x: 29.900263, y: 93.90213, z: 14.3241825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9087,6 +9087,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 678053557205695673}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4942811651126840895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3465984679008089963, guid: 7e7abb179b0030445a41a2b93c0253ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 678053557205695673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942811651126840894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3655e2d9a4052474da2cf6cf6ade6267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7232171543174599086
 PrefabInstance:
   m_ObjectHideFlags: 0
