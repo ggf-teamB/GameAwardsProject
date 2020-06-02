@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ca62e659efa41064c905dadd8e6bad0b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - StandbySprite: {fileID: 21300000, guid: 2353256e5be8730438053166d4e6c178, type: 3}
+  - HoldSprite: {fileID: 21300000, guid: ff0f29e2302dad148846f80bc3a7ad2a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

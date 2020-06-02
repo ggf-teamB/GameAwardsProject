@@ -66,6 +66,8 @@ public class Shooting : MonoBehaviour
 
     public bool alg;
 
+    public static Vector3 force;
+
     // Use this for initialization
     void Start()
     {
@@ -154,8 +156,6 @@ public class Shooting : MonoBehaviour
             {
                 //弾(水)の複製
                 bullets = Instantiate(bullet) as GameObject;
-
-                Vector3 force;
 
                 //キャラクターの向いてる方向に力を加える
                 force = this.gameObject.transform.forward * WaterSpeed;
