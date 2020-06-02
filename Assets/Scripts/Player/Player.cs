@@ -124,8 +124,8 @@ public class Player : MonoBehaviour
         //StageStateがStage_02のとき
         if(stManager.StageState == StagesState.Stage_02)
         {
-            this.transform.position = new Vector3(3f, 0.4f, 75.6f);
-            this.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+            this.transform.position = new Vector3(74.9f, 0.4f, 4f);
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
         //StageStateがStage_03のとき
