@@ -17,6 +17,16 @@ public class MiniMap : MonoBehaviour
 
     private Image mapImage;
 
+    //プレイヤー関連
+    [SerializeField] private GameObject palyerObj;
+    private Player player;
+
+    //フロアが変わるかどうか
+    private bool isChangeFloor;
+
+    //2階であるかどうか
+    [SerializeField] private bool isSecondFloor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +36,11 @@ public class MiniMap : MonoBehaviour
 
         mapImage = this.GetComponentInChildren<Image>();
 
+        player = palyerObj.GetComponent<Player>();
+
+        isChangeFloor = false;
+        isSecondFloor = false;
+
         //ステージステータスがStage_01のとき
         if (stManager.StageState == StagesState.Stage_01) mapImage.sprite = st01;
 
@@ -34,12 +49,36 @@ public class MiniMap : MonoBehaviour
 
         //ステージステータスがStage_03のとき
         if (stManager.StageState == StagesState.Stage_03) mapImage.sprite = st03;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(stManager.StageState == StagesState.Stage_02)
+        {
+
+            if (player.transform.position.y >= 8.0f)
+            {
+                isSecondFloor = true;
+            }
+            else
+            {
+                isSecondFloor = false;
+            }
+
+            Change_MiniMap();
+        }
+    }
+
+    private void Change_MiniMap()
+    {
+        if (isSecondFloor)
+        {
+            mapImage.sprite = st02_2;
+        }
+        else
+        {
+            mapImage.sprite = st02_1;
+        }
     }
 }
