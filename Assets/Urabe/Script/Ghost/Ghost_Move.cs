@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyStatus))]
-public class enemSlimemove : MonoBehaviour
+public class Ghost_Move : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
     //[SerializeField] private float Speed = 3;
@@ -23,19 +22,20 @@ public class enemSlimemove : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();  //NavMeshAgentの情報をagentに代入
         _status = GetComponent<EnemyStatus>();
+
     }
 
-    void Update()
+    public void Update()
     {
         Vector3 pos = wayPoints[currentRoot];//Vector3型のposに現在の目的地の座標を代入
         float distance = Vector3.Distance(enemypos.position, player.transform.position);//敵とプレイヤーの距離を求める
 
-        if (distance > 1)
+        if (distance > 5)
         {//もしプレイヤーと敵の距離が5以上なら
             Mode = 0;//Modeを0にする
         }
 
-        if (distance < 1)
+        if (distance < 5)
         {//もしプレイヤーと敵の距離が5以下なら
             Mode = 1;//Modeを1にする
         }
@@ -102,3 +102,4 @@ public class enemSlimemove : MonoBehaviour
         }
     }
 }
+
