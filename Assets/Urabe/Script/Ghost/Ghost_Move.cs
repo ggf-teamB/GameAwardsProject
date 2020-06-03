@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -7,58 +6,51 @@ using UnityEngine.AI;
 public class Ghost_Move : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
-    //[SerializeField] private float Speed = 3;
 
     public Vector3[] wayPoints = new Vector3[3];   //徘徊するポイントの座標を代入するVector3型の変数を配列で作る
-    private int currentRoot;                       //現在目指すポイントを代入する変数
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
-    private int Mode;                             //敵の行動パターンを分けるための変数
     public Transform player;                      //プレイヤーの位置を取得するためのTransform型の変数
-    public Transform enemypos;                   //敵の位置を取得するためのTransform型の変数
+    public Transform[] points;
+    private int destPoint = 0;
 
     public void Start()
     {
         _agent = GetComponent<NavMeshAgent>();  //NavMeshAgentの情報をagentに代入
         _status = GetComponent<EnemyStatus>();
 
+        // autoBraking を無効にすると、目標地点の間を継続的に移動します
+        //(つまり、エージェントは目標地点に近づいても
+        // 速度をおとしません)
+        _agent.autoBraking = false;
+
+        destPoint = Random.Range(0, points.Length);
+
+        GotoNextPoint();
+
+    }
+
+    void GotoNextPoint()
+    {
+        // 地点がなにも設定されていないときに返します
+        if (points.Length == 0)
+            return;
+
+        // エージェントが現在設定された目標地点に行くように設定します
+        _agent.destination = points[destPoint].position;
+        
+        // 配列内の次の位置を目標地点に設定し、
+        // 必要ならば出発地点にもどります
+        destPoint = (destPoint + 1) % points.Length;
     }
 
     public void Update()
     {
-        Vector3 pos = wayPoints[currentRoot];//Vector3型のposに現在の目的地の座標を代入
-        float distance = Vector3.Distance(enemypos.position, player.transform.position);//敵とプレイヤーの距離を求める
-
-        if (distance > 5)
-        {//もしプレイヤーと敵の距離が5以上なら
-            Mode = 0;//Modeを0にする
-        }
-
-        if (distance < 5)
-        {//もしプレイヤーと敵の距離が5以下なら
-            Mode = 1;//Modeを1にする
-        }
-
-        switch (Mode)
-        {
-            case 0://case0の場合
-
-                if (Vector3.Distance(transform.position, pos) < 1f)
-                {//もし敵の位置と現在の目的地との距離が1以下なら
-                    currentRoot += 1;//currentRootを+1する
-                    if (currentRoot > wayPoints.Length - 1)
-                    {//もしcurrentRootがwayPointsの要素数-1より大きいなら
-                        currentRoot = 0;//currentRootを0にする
-                    }
-                }
-                GetComponent<NavMeshAgent>().SetDestination(pos);//NavMeshAgentの情報を取得し目的地をposにする
-                break;//switch文の各パターンの最後につける
-
-            case 1://case1の場合
-                _agent.destination = player.transform.position;//プレイヤーに向かって進む		
-                break;//switch文の各パターンの最後につける
-        }
+        // エージェントが現目標地点に近づいてきたら、
+        // 次の目標地点を選択します
+        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
+            GotoNextPoint();
     }
 
     //CollisionDetectorのonTriggerStayにセットし、衝突判定を起こす
