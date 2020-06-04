@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyStatus))]
-public class enemSlimemove : MonoBehaviour
+public class Rabbit_Move : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
 
@@ -94,3 +94,4 @@ public class enemSlimemove : MonoBehaviour
         }
     }
 }
+
