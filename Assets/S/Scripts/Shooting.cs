@@ -53,6 +53,8 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     public int chackcnt2;
 
+    public int chackcnt3;
+
     //一個目のマウス座標を取得していれる
     private Vector3 mousePosition;
 
@@ -65,6 +67,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] STText tutorialtext;
 
     public bool alg;
+
+    public bool AnimeFlg;
 
     public static Vector3 force;
 
@@ -79,9 +83,11 @@ public class Shooting : MonoBehaviour
         MouseRightFlg = false;
         MouseLeftFlg = false;
         chackflg = false;
+        AnimeFlg = false;
         cnt = 0;
         chackcnt = 0;
         chackcnt2 = 0;
+        chackcnt3 = 0;
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
@@ -127,6 +133,8 @@ public class Shooting : MonoBehaviour
 
             chackcnt2++;
 
+            GetComponent<AudioSource>().Play();
+
             MouseLeftFlg = true;
             MouseRightFlg = false;
 
@@ -141,7 +149,57 @@ public class Shooting : MonoBehaviour
             MouseLeftFlg = false;
             WaterConsumption = false;
 
+            GetComponent<AudioSource>().Stop();
+
             chackcnt2 = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("isRoll", true);
+            AnimeFlg = true;
+            WaterConsumption = true;
+            GetComponent<AudioSource>().Play();
+        }
+        if(AnimeFlg == true)
+        {
+            chackcnt++;
+            chackcnt3++;
+
+            if(chackcnt == 1)
+            {
+                //弾(水)の複製
+                bullets = Instantiate(bullet) as GameObject;
+
+                //キャラクターの向いてる方向に力を加える
+                force = this.gameObject.transform.forward * WaterSpeed;
+
+                //Rigidbodyに力を加えて発射
+                bullets.GetComponent<Rigidbody>().AddForce(force);
+
+                //弾丸の位置を調整
+                bullets.transform.position = muzzle.position;
+
+                //水消費フラグをtrueにする
+                WaterConsumption = true;
+
+                //三秒後に削除
+                Destroy(bullets, 1.0f);
+
+                //水のスピードを弱める
+                WaterSpeed -= 10;
+
+                //カウントリセット
+                chackcnt = 0;
+            }
+            if (chackcnt3 >= 195)
+            {
+                animator.SetBool("isRoll", false);
+                AnimeFlg = false;
+                //水消費フラグをfalseにする
+                WaterConsumption = false;
+                GetComponent<AudioSource>().Stop();
+            }
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
@@ -179,8 +237,9 @@ public class Shooting : MonoBehaviour
                 chackcnt = 0;
 
             }
+         
         }
-
+        
             //右クリックが押され続けているなら
             if (MouseRightFlg == true)
             {
