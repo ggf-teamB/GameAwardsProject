@@ -21,12 +21,17 @@ public class UIWatarGauge : MonoBehaviour
     //補給フラグ
     public bool SupplyFlg;
 
+    //Animator型の変数
+    private Animator animator;
+
     // Use this for initialization
     void Start()
     {
         countTime = 5.0f;
         WaterLaunch = true;
         WaterMax = false;
+        //Animatorを変数に代入
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -64,6 +69,20 @@ public class UIWatarGauge : MonoBehaviour
         else
         {
             WaterMax = false;
+        }
+
+        //ゲージMAXの時にスペースキーが押されたとき
+        if (Input.GetKey(KeyCode.Space) && WaterMax == true)
+        {
+            //isRollをtrueにする
+            animator.SetBool("isRoll", true);
+            //ゲージが減る処理
+            WatarGauge.fillAmount -= 1.0f / countTime * Time.deltaTime;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            //isRunをfalseにする
+            animator.SetBool("isRoll", false);
         }
 
         //flgがtrueなら
