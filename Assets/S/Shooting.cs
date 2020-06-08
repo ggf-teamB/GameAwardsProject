@@ -53,6 +53,8 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     public int chackcnt2;
 
+    private float checkcnt3;
+
     //一個目のマウス座標を取得していれる
     private Vector3 mousePosition;
 
@@ -61,6 +63,8 @@ public class Shooting : MonoBehaviour
 
     //Animator型の変数
     private Animator animator;
+
+    private bool AnimeFlg;
 
     public AudioClip audioClip;
     AudioSource audioSource;
@@ -79,9 +83,12 @@ public class Shooting : MonoBehaviour
         MouseRightFlg = false;
         MouseLeftFlg = false;
         chackflg = false;
+        AnimeFlg = false;
         cnt = 0;
         chackcnt = 0;
         chackcnt2 = 0;
+
+        checkcnt3 = 0;
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
@@ -125,6 +132,7 @@ public class Shooting : MonoBehaviour
         {
             //Unityちゃんが銃を構える
             animator.SetBool("isGunpose", true);
+            animator.SetBool("isGunpose2",true);
 
             chackcnt2++;
 
@@ -145,6 +153,7 @@ public class Shooting : MonoBehaviour
         {
             //Unityちゃんが普通に戻る
             animator.SetBool("isGunpose", false);
+            animator.SetBool("isGunpose2", false);
 
             MouseLeftFlg = false;
             WaterConsumption = false;
@@ -154,15 +163,62 @@ public class Shooting : MonoBehaviour
             GetComponent<AudioSource>().Stop();  // 効果音を鳴らす
 
         }
-
-        //左クリックが押された時かつ水発射フラグがtrueの時
-        if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >= 30)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetBool("isRoll", true);
+            AnimeFlg = true;
+            GetComponent<AudioSource>().Play();  // 効果音を鳴らす
+        }
+        if (AnimeFlg == true)
+        {
+            chackcnt++;
+            checkcnt3++;
 
+            if (chackcnt == 1)
+            {
+                //弾(水)の複製
+                bullets = Instantiate(bullet) as GameObject;
+
+                Vector3 force;
+
+                //キャラクターの向いてる方向に力を加える
+                force = this.gameObject.transform.forward * WaterSpeed;
+
+                //Rigidbodyに力を加えて発射
+                bullets.GetComponent<Rigidbody>().AddForce(force);
+
+                //弾丸の位置を調整
+                bullets.transform.position = muzzle.position;
+
+                //水消費フラグをtrueにする
+                WaterConsumption = true;
+
+                //三秒後に削除
+                Destroy(bullets, 1.0f);
+
+                //水のスピードを弱める
+                WaterSpeed -= 10;
+
+                //カウントリセット
+                chackcnt = 0;
+
+            }
+
+            if(checkcnt3 >= 170)
+            {
+                animator.SetBool("isRoll", false);
+                AnimeFlg = false;
+                //水消費フラグをfalseにする
+                WaterConsumption = false;
+                GetComponent<AudioSource>().Stop();  // 効果音を止める
+            }
+        }
+
+            //左クリックが押された時かつ水発射フラグがtrueの時
+            if (MouseLeftFlg == true && WaterLaunch == true && chackcnt2 >= 30)
+        {
             //カウントアップ
             chackcnt++;
-
-          
 
             if (chackcnt == 5)
             {
