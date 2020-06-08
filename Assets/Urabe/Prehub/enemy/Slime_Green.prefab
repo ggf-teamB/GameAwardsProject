@@ -117,13 +117,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8140772863259716540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.99247843, z: -0, w: -0.122419626}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8140772864736071230}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -194.064, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 24.2}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 8140772863426102973}
   - component: {fileID: 8140772863426102974}
   - component: {fileID: 8140772863426102975}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slime_Green
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -243,8 +243,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.013
-  m_Height: 0.1
+  m_Radius: 0.02
+  m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8140772863644561729
@@ -262,6 +262,10 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &8140772863426102947
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -271,16 +275,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 8140772863426102968}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.02
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 3
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.3
+  m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -296,7 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b25d8a0b3d9cdd4f933df3790345073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeMax: 100
 --- !u!114 &8140772863644561756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0.5
   attackCollider: {fileID: 8140772864808972139}
+  attackDamage: 10
 --- !u!114 &8140772863426102973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +522,7 @@ GameObject:
   - component: {fileID: 8140772863667983564}
   - component: {fileID: 8140772863667983602}
   - component: {fileID: 8140772863667983603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRangeDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1030,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8140772864627641011
 MonoBehaviour:
@@ -1302,7 +1306,7 @@ GameObject:
   - component: {fileID: 8140772864808972137}
   - component: {fileID: 8140772864808972139}
   - component: {fileID: 8140772864808972138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}

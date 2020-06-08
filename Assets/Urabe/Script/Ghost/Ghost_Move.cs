@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(EnemyStatus))]
-public class enemSlimemove : MonoBehaviour
+public class Ghost_Move : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
 
+    public Vector3[] wayPoints = new Vector3[3];   //徘徊するポイントの座標を代入するVector3型の変数を配列で作る
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
+    public Transform player;                      //プレイヤーの位置を取得するためのTransform型の変数
     public Transform[] points;
     private int destPoint = 0;
 
@@ -39,7 +39,7 @@ public class enemSlimemove : MonoBehaviour
 
         // エージェントが現在設定された目標地点に行くように設定します
         _agent.destination = points[destPoint].position;
-
+        
         // 配列内の次の位置を目標地点に設定し、
         // 必要ならば出発地点にもどります
         destPoint = (destPoint + 1) % points.Length;
@@ -94,3 +94,4 @@ public class enemSlimemove : MonoBehaviour
         }
     }
 }
+
