@@ -164,6 +164,9 @@ public class Player : MonoBehaviour
         //wキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.W))
         {
+            //他のキーを入力されてるとき処理を切り上げる
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) return;
+
             //isRunをfalseにする
             animator.SetBool("isRun", false);
         }
@@ -182,6 +185,9 @@ public class Player : MonoBehaviour
         //sキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.S))
         {
+            //他のキーを入力されてるとき処理を切り上げる
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) return;
+
             //isRunをfalseにする
             animator.SetBool("isRun", false);
         }
@@ -200,6 +206,9 @@ public class Player : MonoBehaviour
         //aキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.A))
         {
+            //他のキーを入力されてるとき処理を切り上げる
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) return;
+
             //isRunをfalseにする
             animator.SetBool("isRun", false);
         }
@@ -218,6 +227,35 @@ public class Player : MonoBehaviour
         //dキーが押されたとき
         else if (Input.GetKeyUp(KeyCode.D))
         {
+            //他のキー入力されてるとき処理を切り上げる
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A)) return;
+
+            //isRunをfalseにする
+            animator.SetBool("isRun", false);
+        }
+
+        //すべての移動キーが押されたとき
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
+            Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("isRun", false);
+        }
+
+        //移動しない場合isRunをfalseにする
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+        {
+            //AキーとDキー入力の時は処理を切り上げる
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) return;
+
+            //isRunをfalseにする
+            animator.SetBool("isRun", false);
+        }
+
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            //WキーとSキー入力の時は処理を切り上げる
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S)) return;
+
             //isRunをfalseにする
             animator.SetBool("isRun", false);
         }
