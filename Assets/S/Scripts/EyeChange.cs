@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//壁君の目を変えます
 public class EyeChange : MonoBehaviour
 {
     SpriteRenderer MainSpriteRenderer;
     // publicで宣言し、inspectorで設定可能にする
-    public Sprite StandbySprite;
-    public Sprite HoldSprite;
+    public Sprite normalSprite;     //通常
+    public Sprite damageSprite;     //ダメージ
+    public Sprite tearsSprite;      //涙
+    public Sprite unknownSprite;    //無い
+
 
     void Start()
     {
@@ -15,18 +18,26 @@ public class EyeChange : MonoBehaviour
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    // 何かしらのタイミングで呼ばれる
-    public void ChangeStateToHold()
+    public void Normal_eye()
     {
-        //呼ばれたら
-        //HoldSpriteに変更
-        MainSpriteRenderer.sprite = HoldSprite;
+        //normalSpriteに変更
+        MainSpriteRenderer.sprite = normalSprite;
     }
-    // 何かしらのタイミングで呼ばれる
-    public void Hold()
+
+    public void Damage_eye()
     {
-        // 呼ばれたら
-        // HoldSpriteに変更
-        MainSpriteRenderer.sprite = StandbySprite;
+        // damageSpriteに変更
+        MainSpriteRenderer.sprite = damageSprite;
+    }
+
+    public void Tears_eye()
+    {
+        // tearsSpriteに変更
+        MainSpriteRenderer.sprite = tearsSprite;
+    }
+    public void Unknowm_eye()
+    {
+        // unknownSpriteに変更
+        MainSpriteRenderer.sprite = unknownSprite;
     }
 }
