@@ -505,7 +505,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.03, z: 0.03}
+  m_Size: {x: 0.04, y: 0.04, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8169035439149232840
 MonoBehaviour:
@@ -621,7 +621,6 @@ GameObject:
   - component: {fileID: 1670565970127361550}
   - component: {fileID: 3301666649348715569}
   - component: {fileID: 8518688197053768039}
-  - component: {fileID: 2771708429473997694}
   m_Layer: 0
   m_Name: CollisionDetector
   m_TagString: Untagged
@@ -653,7 +652,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.04
+  m_Radius: 0.1
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -686,20 +685,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &2771708429473997694
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8788893315192062915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9155995747006712745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1074,7 @@ GameObject:
   - component: {fileID: 3992023101826727280}
   - component: {fileID: 5586006985138563675}
   - component: {fileID: 1066766709910605642}
+  - component: {fileID: 1715487884}
   m_Layer: 11
   m_Name: Rabbit_Yellow
   m_TagString: Untagged
@@ -1144,14 +1130,14 @@ NavMeshAgent:
   m_GameObject: {fileID: 9155995748351183707}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.03
+  m_Radius: 0.01
   m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -1188,6 +1174,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &3992023101826727280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226497d41ea3502429bf2c5d3dd2eb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
+  attackCooldown: 0.1
   attackCollider: {fileID: 8049615759418159182}
   attackDamage: 10
 --- !u!114 &5586006985138563675
@@ -1233,6 +1222,20 @@ MonoBehaviour:
   player_Bullet: {fileID: 5586006985138563675}
   HP_UI: {fileID: 2091420380}
   hpSlider: {fileID: 1294228440}
+--- !u!136 &1715487884
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155995748351183707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9155995748740624251
 GameObject:
   m_ObjectHideFlags: 0

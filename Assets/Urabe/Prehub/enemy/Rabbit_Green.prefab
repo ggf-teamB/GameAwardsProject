@@ -833,6 +833,7 @@ GameObject:
   - component: {fileID: 6690977207104351882}
   - component: {fileID: 7946891888225012738}
   - component: {fileID: 4850939106475477671}
+  - component: {fileID: 1047787285764839224}
   m_Layer: 11
   m_Name: Rabbit_Green
   m_TagString: Untagged
@@ -888,7 +889,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3627077319931614098}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.03
+  m_Radius: 0.01
   m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
@@ -944,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226497d41ea3502429bf2c5d3dd2eb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
+  attackCooldown: 0.1
   attackCollider: {fileID: 5943279896617830732}
   attackDamage: 10
 --- !u!114 &7946891888225012738
@@ -977,6 +978,20 @@ MonoBehaviour:
   player_Bullet: {fileID: 7946891888225012738}
   HP_UI: {fileID: 0}
   hpSlider: {fileID: 0}
+--- !u!136 &1047787285764839224
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627077319931614098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3627077323725703266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1108,6 @@ GameObject:
   - component: {fileID: 4403939820239438393}
   - component: {fileID: 2339015515890529864}
   - component: {fileID: 5114059066934774604}
-  - component: {fileID: 9074737575498651186}
   m_Layer: 0
   m_Name: CollisionDetector
   m_TagString: Untagged
@@ -1125,7 +1139,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.04
+  m_Radius: 0.1
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1158,20 +1172,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &9074737575498651186
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4435227064676751647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5388759186310876750
 GameObject:
   m_ObjectHideFlags: 0
