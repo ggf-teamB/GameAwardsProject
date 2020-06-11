@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     //ステージ管理クラス
     [SerializeField] private StageManager stManager;
 
+    //射撃クラス
+    [SerializeField] private Shooting shooting;
+
     //キャラクターコントローラーを動かす為のVector3型の変数
     [SerializeField] private Vector3 velocity;
 
@@ -90,6 +93,8 @@ public class Player : MonoBehaviour
 
         stText = tutorialObj.GetComponent<STText>();
 
+        shooting = this.GetComponent<Shooting>();
+
         //characterControllerを変数に代入
         characterController = GetComponent<CharacterController>();
 
@@ -139,6 +144,9 @@ public class Player : MonoBehaviour
     //プレイヤーの移動
     void Player_Move()
     {
+        //特殊アニメーションが発生するとき移動させない
+        if (shooting.AnimeFlg == true) return;
+
         //Shiftキーが入力されたとき
         if (Input.GetKey(KeyCode.LeftShift))
         {
