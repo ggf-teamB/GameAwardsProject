@@ -170,7 +170,7 @@ public class Shooting : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (chackcnt3 == 130 || WaterLaunch == false)
+        if (chackcnt3 == 140 || WaterLaunch == false)
         {
             animator.SetBool("isRoll", false);
             AnimeFlg = false;
