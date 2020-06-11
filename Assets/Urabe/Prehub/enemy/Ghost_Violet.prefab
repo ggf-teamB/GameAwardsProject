@@ -301,13 +301,7 @@ MonoBehaviour:
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  wayPoints:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   points:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -324,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c3c13ce0a1ca4479eac42c56c628b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
+  attackCooldown: 0.1
   attackCollider: {fileID: 3401947216979308695}
   attackDamage: 10
 --- !u!114 &3401947217223960572
@@ -348,16 +342,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 3401811430727883097}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.02
-  m_Speed: 1
+  m_Radius: 0.015
+  m_Speed: 3
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -842,7 +836,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3401947216609009049
 MonoBehaviour:
@@ -899,7 +893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3401947216815698103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0026, z: 0.0003}
+  m_LocalPosition: {x: 0, y: 0.0026, z: 0.0031}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.789}
   m_Children: []
   m_Father: {fileID: 3402488234167784083}
@@ -973,7 +967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3401947216979308694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0001, y: 0.0051, z: 0.0025}
+  m_LocalPosition: {x: -0.0001, y: 0.0051, z: 0.0011}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3402488234167784083}

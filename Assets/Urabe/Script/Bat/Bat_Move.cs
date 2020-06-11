@@ -7,11 +7,9 @@ public class Bat_Move : MonoBehaviour
 {
     [SerializeField] private LayerMask raycastLayerMask;
 
-    public Vector3[] wayPoints = new Vector3[3];   //徘徊するポイントの座標を代入するVector3型の変数を配列で作る
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
-    public Transform player;                      //プレイヤーの位置を取得するためのTransform型の変数
     public Transform[] points;
     private int destPoint = 0;
 
