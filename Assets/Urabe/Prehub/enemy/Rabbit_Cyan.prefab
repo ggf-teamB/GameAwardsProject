@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 4373018009670949416}
   - component: {fileID: 4228997299869105978}
   - component: {fileID: 7701468629540325444}
-  - component: {fileID: 8190743607652463308}
   m_Layer: 0
   m_Name: CollisionDetector
   m_TagString: Untagged
@@ -227,20 +226,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &8190743607652463308
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381721748161728009}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3626114869604357823
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +744,7 @@ GameObject:
   - component: {fileID: 3564787138559340970}
   - component: {fileID: 8066714666477690361}
   - component: {fileID: 5558600766690069958}
+  - component: {fileID: 1141192725784444252}
   m_Layer: 11
   m_Name: Rabbit_Cyan
   m_TagString: Untagged
@@ -906,6 +892,20 @@ MonoBehaviour:
   player_Bullet: {fileID: 8066714666477690361}
   HP_UI: {fileID: 8451112268445499081}
   hpSlider: {fileID: 1298054876504430864}
+--- !u!136 &1141192725784444252
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893586816123958484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3893586816512652516
 GameObject:
   m_ObjectHideFlags: 0
