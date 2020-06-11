@@ -133,11 +133,19 @@ public class Shooting : MonoBehaviour
 
             chackcnt2++;
 
-            GetComponent<AudioSource>().Play();
+            //GetComponent<AudioSource>().Play();
+
+            //水消費フラグをtrueにする
+            WaterConsumption = true;
 
             MouseLeftFlg = true;
             MouseRightFlg = false;
 
+        }
+
+        if (Input.GetMouseButtonDown(0) && AnimeFlg == false)
+        {
+            GetComponent<AudioSource>().Play();
         }
 
         //左クリックが離されている状態なら
@@ -161,12 +169,22 @@ public class Shooting : MonoBehaviour
             WaterConsumption = true;
             GetComponent<AudioSource>().Play();
         }
-        if(AnimeFlg == true)
+
+        if (chackcnt3 == 130 || WaterLaunch == false)
+        {
+            animator.SetBool("isRoll", false);
+            AnimeFlg = false;
+            //水消費フラグをfalseにする
+            WaterConsumption = false;
+            GetComponent<AudioSource>().Stop();
+            chackcnt3 = 0;
+        }
+        if (AnimeFlg == true && WaterLaunch == true)
         {
             chackcnt++;
             chackcnt3++;
 
-            if(chackcnt == 1)
+            if(chackcnt == 3)
             {
                 //弾(水)の複製
                 bullets = Instantiate(bullet) as GameObject;
@@ -192,14 +210,7 @@ public class Shooting : MonoBehaviour
                 //カウントリセット
                 chackcnt = 0;
             }
-            if (chackcnt3 >= 195)
-            {
-                animator.SetBool("isRoll", false);
-                AnimeFlg = false;
-                //水消費フラグをfalseにする
-                WaterConsumption = false;
-                GetComponent<AudioSource>().Stop();
-            }
+  
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
