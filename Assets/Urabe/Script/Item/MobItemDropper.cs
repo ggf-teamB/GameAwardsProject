@@ -9,16 +9,16 @@ public class MobItemDropper : MonoBehaviour
     [SerializeField] private Item itemPrefab;
     [SerializeField] private int number = 1; 　//アイテム出現個数
 
-    private CountDownHP.zako_status _status;
+    public CountDownHP.zako_status _status;
     private bool _isDropInvoked;
-    private void Start()
+    public void Start()
     {
         _status = GetComponent<CountDownHP.zako_status>();
     }
 
-    private void Update()
+    public void Update()
     {
-        if (_status.HP <= 0)
+        if (_status.HP <= 10)
         {
             //ライフが尽きたときに実行
             DropIfNeeded();
