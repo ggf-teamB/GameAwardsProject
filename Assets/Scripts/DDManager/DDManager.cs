@@ -12,6 +12,8 @@ public class DDManager : MonoBehaviour
 
     public GameObject stageManager;
 
+    public GameObject cursorManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,8 @@ public class DDManager : MonoBehaviour
 
         //stageMangerを削除しないように設定する
         DontDestroyOnLoad(stageManager);
+
+        //cursorManagerを削除しないように設定する
+        DontDestroyOnLoad(cursorManager);
     }
 }

@@ -20,9 +20,15 @@ public class GameManager : MonoBehaviour
     //現在のステータス状態
     [SerializeField] public GameState gameState;
 
+    [SerializeField] private GameObject cursorManagerObj;
+
+    [SerializeField] private CursorManager cursorManager;
+
     private void Awake()
     {
         Instance = this;
+
+        cursorManager = cursorManagerObj.GetComponent<CursorManager>();
 
         SetGameState(GameState.None);
     }
@@ -61,23 +67,27 @@ public class GameManager : MonoBehaviour
             case GameState.End:
                 EndAction();
                 break;
+            case GameState.None:
+                NoneAction();
+                break;
         }
     }
 
     void StartAction()
     {
-        Debug.Log("ゲーム画面です");
+        cursorManager.SetCursor(false);
 
         SetGameState(GameState.Playing);
     }
 
     void PlayingAction()
     {
-
+        cursorManager.SetCursor(false);
     }
 
     void PauseAction()
     {
+        cursorManager.SetCursor(true);
         Time.timeScale = 0f;
     }
 
@@ -88,7 +98,11 @@ public class GameManager : MonoBehaviour
         #elif UNITY_STANDALONE
         UnityEngine.Application.Quit();
         #endif
+    }
 
+    void NoneAction()
+    {
+        cursorManager.SetCursor(true);
     }
 
     //シーンのロードが完了時ゲームステータスを変更する

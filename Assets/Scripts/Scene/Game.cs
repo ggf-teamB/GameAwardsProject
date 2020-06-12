@@ -10,6 +10,11 @@ public class Game : MonoBehaviour
     Clear_img c_img;//上のスクリプトいれるやつ
     bool clear_flg;//クリアフラグ
 
+    //ステージマネージャーオブジェクト
+    [SerializeField] private GameObject stManagerObj;
+    //ステージマネージャークラス
+    [SerializeField] private StageManager stManager;
+
     float seconds;//シーン遷移までの時間変数
     private void Start()
     {
@@ -20,6 +25,10 @@ public class Game : MonoBehaviour
 
         c_img = clear.GetComponent<Clear_img>();//オブジェクトのスクリプト
 
+        stManagerObj = GameObject.FindGameObjectWithTag("StageManager");
+
+        stManager = stManagerObj.GetComponent<StageManager>();
+        
         seconds = 0;//クリア時の画像表示時間
 
         clear_flg = false;//クリアフラグの初期化
@@ -48,6 +57,12 @@ public class Game : MonoBehaviour
         }
         if (seconds >= 4)
         {
+            if(stManager.StageState == StagesState.Stage_03)
+            {
+                SceneManager.LoadScene("GameClear");
+                return;
+            }
+
             SceneManager.LoadScene("Menu");
 
             SceneManager.sceneLoaded += GameSceneLoaded;
