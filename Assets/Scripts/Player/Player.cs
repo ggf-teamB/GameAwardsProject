@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
     //Animator型の変数
     private Animator animator;
 
+    //歩き・走りのSE
+    private AudioSource[] Run_Walk;
+
     //最大体力のプロパティ
     public int MaxHp
     {
@@ -100,6 +103,9 @@ public class Player : MonoBehaviour
 
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
+
+        //AudioSourceを代入
+        Run_Walk = gameObject.GetComponents<AudioSource>();
 
         Player_Spawn();
     }
@@ -168,6 +174,10 @@ public class Player : MonoBehaviour
             //isRunをtrueにする
             animator.SetBool("isRun", true);
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Run_Walk[1].Play();
+        }
 
         //wキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.W))
@@ -177,6 +187,8 @@ public class Player : MonoBehaviour
 
             //isRunをfalseにする
             animator.SetBool("isRun", false);
+
+            Run_Walk[1].Stop();
         }
 
         //sキーが押されたとき
@@ -189,7 +201,10 @@ public class Player : MonoBehaviour
             //isRunをtrueにする
             animator.SetBool("isRun", true);
         }
-
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Run_Walk[1].Play();
+        }
         //sキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.S))
         {
@@ -198,7 +213,10 @@ public class Player : MonoBehaviour
 
             //isRunをfalseにする
             animator.SetBool("isRun", false);
+
+            Run_Walk[1].Stop();
         }
+
 
         //aキーが押されたとき
         if (Input.GetKey(KeyCode.A))
@@ -210,6 +228,10 @@ public class Player : MonoBehaviour
             //isRunをtrueにする
             animator.SetBool("isRun", true);
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Run_Walk[1].Play();
+        }
 
         //aキーがはなされたとき
         else if (Input.GetKeyUp(KeyCode.A))
@@ -219,6 +241,8 @@ public class Player : MonoBehaviour
 
             //isRunをfalseにする
             animator.SetBool("isRun", false);
+
+            Run_Walk[1].Stop();
         }
 
         //dキーが押されたとき
@@ -231,10 +255,15 @@ public class Player : MonoBehaviour
             //isRunをtrueにする
             animator.SetBool("isRun", true);
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Run_Walk[1].Play();
+        }
 
-        //dキーが押されたとき
+        //dキーが離されたとき
         else if (Input.GetKeyUp(KeyCode.D))
         {
+            Run_Walk[1].Stop();
             //他のキー入力されてるとき処理を切り上げる
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A)) return;
 
