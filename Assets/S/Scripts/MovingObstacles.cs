@@ -12,6 +12,11 @@ public class MovingObstacles : MonoBehaviour
     private EyeChange pt;
     private int cnt;
 
+    private AudioSource break_wall;
+
+    //ドカンのフラグ
+    private bool break_triger;
+
     [SerializeField] private bool flg;
     public bool Flg
     {
@@ -27,6 +32,9 @@ public class MovingObstacles : MonoBehaviour
         pt = Pot.GetComponent<EyeChange>();
         flg = false;
         maxhp = hp.HP;
+
+        break_triger = false;
+        break_wall = gameObject.GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +73,15 @@ public class MovingObstacles : MonoBehaviour
         {
             //力を加えて突き飛ばす
             this.GetComponent<Rigidbody>().AddForce(force, ForceMode.Force);
+
+            if (!break_triger)
+            {
+                break_triger = true;
+                //壁ぶっ飛ぶ時SE
+                break_wall.Play();
+
+            }
+
             //目の描画を変える
             if (flg == true) pt.Damage_eye();
             flg = true;
