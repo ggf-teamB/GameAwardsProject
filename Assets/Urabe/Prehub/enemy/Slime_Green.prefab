@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 8140772863426102972}
   - component: {fileID: 8140772863644561756}
   - component: {fileID: 8140772863426102973}
-  - component: {fileID: 8140772863426102974}
   - component: {fileID: 8140772863426102975}
   m_Layer: 11
   m_Name: Slime_Green
@@ -338,22 +337,6 @@ MonoBehaviour:
   player_Bullet: {fileID: 8140772863426102975}
   HP_UI: {fileID: 8140772864698889135}
   hpSlider: {fileID: 0}
---- !u!114 &8140772863426102974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8140772863426102968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d6ea4554c617f4c98469e5b6fe264e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropRate: 1
-  itemPrefab: {fileID: 5084719442908362311, guid: cc5de5e674870ca479a40105f80555ad,
-    type: 3}
-  number: 1
 --- !u!114 &8140772863426102975
 MonoBehaviour:
   m_ObjectHideFlags: 0
