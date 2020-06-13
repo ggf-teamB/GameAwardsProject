@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edd3d71560823148acd9557e76028ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 0}
+  videoPlayer: {fileID: 756084493}
   waitTimer: 0
 --- !u!4 &1513615101
 Transform:
