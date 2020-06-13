@@ -6,6 +6,6 @@ public class RandomBehaviour : StateMachineBehaviour
 
     public void OnStateEnter(Animator animator, int stateMachinePathHash)
     {
-        animator.SetInteger(hashRandom, Random.Range(0, 3));
+        animator.SetInteger(hashRandom, Random.Range(0, 2));
     }
 }
