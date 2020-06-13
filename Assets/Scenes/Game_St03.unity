@@ -15044,11 +15044,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725e4cc707fd03d4aad9ef46a88b52d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAXHP: 5000
+  MAXHP: 1
   HP: 0
   player_Bullet: {fileID: 1563011836}
   HP_UI: {fileID: 1820140140}
   hpSlider: {fileID: 1322979842}
+  systemObj: {fileID: 797552487}
+  game: {fileID: 0}
 --- !u!114 &1563011836 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8124980393518859630, guid: ac81fa4a1b19837488ff36b4355d0604,

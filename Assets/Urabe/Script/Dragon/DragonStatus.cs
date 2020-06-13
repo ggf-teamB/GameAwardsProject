@@ -32,6 +32,13 @@ namespace CountDownHP
         //HP表示のスライダー
         public Slider hpSlider;
 
+        //システムオブジェクト
+        [SerializeField]
+        private GameObject systemObj;
+
+        [SerializeField]
+        private Game game;
+
         void Start()
         {
 
@@ -43,6 +50,8 @@ namespace CountDownHP
             //HPバーのデータを取得
             hpSlider = HP_UI.transform.Find("HP_Bar").GetComponent<Slider>();
             hpSlider.value = 1f;
+
+            game = systemObj.GetComponent<Game>();
         }
 
         public void Set_HP()
@@ -77,6 +86,7 @@ namespace CountDownHP
             //HPが0以下になったら敵を削除
             if (HP <= 0)
             {
+                game.GameClear();
                 Destroy(this.gameObject);
             }
         }
