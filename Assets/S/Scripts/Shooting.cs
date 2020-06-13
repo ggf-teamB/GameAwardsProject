@@ -72,6 +72,10 @@ public class Shooting : MonoBehaviour
 
     public static Vector3 force;
 
+    private float x;
+
+    private int c;
+
     // Use this for initialization
     void Start()
     {
@@ -88,7 +92,8 @@ public class Shooting : MonoBehaviour
         chackcnt = 0;
         chackcnt2 = 0;
         chackcnt3 = 0;
-
+        x = 0;
+        c = 0;
         //Animatorを変数に代入
         animator = GetComponent<Animator>();
 
@@ -103,7 +108,7 @@ public class Shooting : MonoBehaviour
 
         alg = tutorialtext.Flg;
 
-        if (tutorialtext.Flg == true)return;
+        if (tutorialtext.Flg == true) return;
 
         //水発射フラグをUIWatarGaugeクラスから取得
         WaterLaunch = UIWatarGauge.WaterLaunch;
@@ -170,7 +175,7 @@ public class Shooting : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 
-        if (chackcnt3 == 140 || WaterLaunch == false)
+        if (chackcnt3 == 100 || WaterLaunch == false)
         {
             animator.SetBool("isRoll", false);
             AnimeFlg = false;
@@ -178,14 +183,30 @@ public class Shooting : MonoBehaviour
             WaterConsumption = false;
             GetComponent<AudioSource>().Stop();
             chackcnt3 = 0;
+            c = 0;
+            x = 0;
         }
         if (AnimeFlg == true && WaterLaunch == true)
         {
             chackcnt++;
             chackcnt3++;
-
-            if(chackcnt == 3)
+            c++;
+            if (c > 10 && c < 80)
             {
+                x += 10;
+            }
+            else if (c > 80 && c > 100)
+            {
+                x -= 10;
+            }
+            else if (c > 100)
+            {
+                c = 0;
+                x = 0;
+            }
+            if (chackcnt == 3)
+            {
+                transform.Rotate(new Vector3(0f, x, 0f));
                 //弾(水)の複製
                 bullets = Instantiate(bullet) as GameObject;
 
@@ -210,7 +231,7 @@ public class Shooting : MonoBehaviour
                 //カウントリセット
                 chackcnt = 0;
             }
-  
+
         }
 
         //左クリックが押された時かつ水発射フラグがtrueの時
@@ -248,107 +269,107 @@ public class Shooting : MonoBehaviour
                 chackcnt = 0;
 
             }
-         
+
         }
-        
-            //右クリックが押され続けているなら
-            if (MouseRightFlg == true)
+
+        //右クリックが押され続けているなら
+        if (MouseRightFlg == true)
+        {
+            //カウントが0の時
+            if (cnt == 0)
             {
-                //カウントが0の時
-                if (cnt == 0)
+                //マウスの座標を取得(Aとする)
+                mousePosition = Input.mousePosition;
+            }
+
+            //カウントアップ
+            cnt++;
+
+            //カウントが10の時
+            if (cnt == 10)
+            {
+                //マウスの座標を取得(Bとする)
+                chack = Input.mousePosition;
+
+                //マウスAとマウスBの座標を比べる。一定以上動いていればマウスを振っていると認識
+                //振っているのを確認するため、chackflgがtrueだと右に振ったfalseだと左に振った
+                //マウスAとマウスBは一定の間隔で座標を取得するため、cntでカウントされている
+
+                //右に振った
+                if (mousePosition.x > chack.x + 50 &&
+                    chackflg == true && WaterLaunch == true)
                 {
-                    //マウスの座標を取得(Aとする)
-                    mousePosition = Input.mousePosition;
+                    //弾チャージ
+                    WaterSpeed += 100;
+
+                    //フラグを反転
+                    chackflg = false;
                 }
 
-                //カウントアップ
-                cnt++;
-
-                //カウントが10の時
-                if (cnt == 10)
+                //左に振った
+                if (mousePosition.x < chack.x - 50 &&
+                    chackflg == false && WaterLaunch == true)
                 {
-                    //マウスの座標を取得(Bとする)
-                    chack = Input.mousePosition;
+                    //弾チャージ
+                    WaterSpeed += 100;
 
-                    //マウスAとマウスBの座標を比べる。一定以上動いていればマウスを振っていると認識
-                    //振っているのを確認するため、chackflgがtrueだと右に振ったfalseだと左に振った
-                    //マウスAとマウスBは一定の間隔で座標を取得するため、cntでカウントされている
-
-                    //右に振った
-                    if (mousePosition.x > chack.x + 50 &&
-                        chackflg == true && WaterLaunch == true)
-                    {
-                        //弾チャージ
-                        WaterSpeed += 100;
-
-                        //フラグを反転
-                        chackflg = false;
-                    }
-
-                    //左に振った
-                    if (mousePosition.x < chack.x - 50 &&
-                        chackflg == false && WaterLaunch == true)
-                    {
-                        //弾チャージ
-                        WaterSpeed += 100;
-
-                        //フラグを反転
-                        chackflg = true;
-                    }
-
-                    //カウントリセット
-                    cnt = 0;
+                    //フラグを反転
+                    chackflg = true;
                 }
-            }
 
-            //最遅値のアニメーションスピードを設定
-            if (WatarAnimationSpeed >= 20)
-            {
-                WatarAnimationSpeed = 20;
+                //カウントリセット
+                cnt = 0;
             }
+        }
 
-            //最速値のアニメーションスピードを設定
-            if (WatarAnimationSpeed <= 4)
-            {
-                WatarAnimationSpeed = 4;
-            }
+        //最遅値のアニメーションスピードを設定
+        if (WatarAnimationSpeed >= 20)
+        {
+            WatarAnimationSpeed = 20;
+        }
 
-            //ゲージが空になったらアニメーションと勢いの速度をリセット
-            if (WaterLaunch == false)
-            {
-                WatarAnimationSpeed = 20;
-                WaterSpeed = 600;
-            }
+        //最速値のアニメーションスピードを設定
+        if (WatarAnimationSpeed <= 4)
+        {
+            WatarAnimationSpeed = 4;
+        }
 
-            //チャージ上限
-            if (WaterSpeed >= 2000)
-            {
-                WaterSpeed = 2000;
-                WatarAnimationSpeed = 9;
-                MouseRightFlg = false;
-            }
+        //ゲージが空になったらアニメーションと勢いの速度をリセット
+        if (WaterLaunch == false)
+        {
+            WatarAnimationSpeed = 20;
+            WaterSpeed = 600;
+        }
 
-            //チャージ下限
-            if (WaterSpeed < 600)
-            {
-                WaterSpeed = 600;
-                WatarAnimationSpeed = 20;
-            }
+        //チャージ上限
+        if (WaterSpeed >= 2000)
+        {
+            WaterSpeed = 2000;
+            WatarAnimationSpeed = 9;
+            MouseRightFlg = false;
+        }
 
-            //補給中は水の速度を少しずつ落としていく
-            if (WatarMax == false && SupplyFlg == true)
-            {
-                WaterSpeed -= 1;
-            }
+        //チャージ下限
+        if (WaterSpeed < 600)
+        {
+            WaterSpeed = 600;
+            WatarAnimationSpeed = 20;
+        }
 
-            //仮の処理---
-            if (WaterSpeed >= 1800 && WaterSpeed < 2000) WatarAnimationSpeed = 11;
-            if (WaterSpeed >= 1600 && WaterSpeed < 1800) WatarAnimationSpeed = 13;
-            if (WaterSpeed >= 1400 && WaterSpeed < 1600) WatarAnimationSpeed = 15;
-            if (WaterSpeed >= 1200 && WaterSpeed < 1400) WatarAnimationSpeed = 16;
-            if (WaterSpeed >= 1000 && WaterSpeed < 1200) WatarAnimationSpeed = 17;
-            if (WaterSpeed >= 800 && WaterSpeed < 1000) WatarAnimationSpeed = 18;
-            if (WaterSpeed >= 600 && WaterSpeed < 800) WatarAnimationSpeed = 19;
-            //----------
+        //補給中は水の速度を少しずつ落としていく
+        if (WatarMax == false && SupplyFlg == true)
+        {
+            WaterSpeed -= 1;
+        }
+
+        //仮の処理---
+        if (WaterSpeed >= 1800 && WaterSpeed < 2000) WatarAnimationSpeed = 11;
+        if (WaterSpeed >= 1600 && WaterSpeed < 1800) WatarAnimationSpeed = 13;
+        if (WaterSpeed >= 1400 && WaterSpeed < 1600) WatarAnimationSpeed = 15;
+        if (WaterSpeed >= 1200 && WaterSpeed < 1400) WatarAnimationSpeed = 16;
+        if (WaterSpeed >= 1000 && WaterSpeed < 1200) WatarAnimationSpeed = 17;
+        if (WaterSpeed >= 800 && WaterSpeed < 1000) WatarAnimationSpeed = 18;
+        if (WaterSpeed >= 600 && WaterSpeed < 800) WatarAnimationSpeed = 19;
+        //----------
     }
 }
