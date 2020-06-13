@@ -27,7 +27,7 @@ public class Example : MonoBehaviour
 
             Debug.Log("珍天丸");
 
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Title");
         }
     }
 }
