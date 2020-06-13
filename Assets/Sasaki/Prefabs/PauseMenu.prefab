@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 3962840401386301089}
   - component: {fileID: 3962840401386301090}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: ChangeMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,4 +663,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8A2D\u5B9A"
+  m_Text: "\u30E1\u30CB\u30E5\u30FC\u306B\u623B\u308B"

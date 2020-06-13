@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
@@ -15,9 +16,6 @@ public class PauseScript : MonoBehaviour
 
     //ポーズメニューUI
     [SerializeField] private GameObject pauseMenu;
-
-    //設定メニューUI
-    [SerializeField] private GameObject settingsMenu;
 
     //設定画面が表示されているかの判定
     [SerializeField] private bool isSettingsMenu;
@@ -77,28 +75,9 @@ public class PauseScript : MonoBehaviour
         }
     }
 
-    public void Settings()
+    public void Change_Menu()
     {
-        //設定メニューを表示する
-        settingsMenu.SetActive(true);
-
-        //ポーズメニューを非表示にする
-        pauseMenu.SetActive(false);
-
-        //trueにする
-        isSettingsMenu = true;
-    }
-
-    public void Exit_Settings()
-    {
-        //設定メニューを非表示にする
-        settingsMenu.SetActive(false);
-        
-        //ポーズメニューを表示する
-        pauseMenu.SetActive(true);
-
-        //falseにする
-        isSettingsMenu = false;
+        SceneManager.LoadScene("Menu");
     }
 
     public void Exit_Game()

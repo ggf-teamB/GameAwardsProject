@@ -167,14 +167,14 @@ public class Shooting : MonoBehaviour
             chackcnt2 = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+/*        if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("isRoll", true);
             AnimeFlg = true;
             WaterConsumption = true;
             GetComponent<AudioSource>().Play();
         }
-
+*/
         if (chackcnt3 == 100 || WaterLaunch == false)
         {
             animator.SetBool("isRoll", false);
