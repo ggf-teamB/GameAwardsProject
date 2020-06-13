@@ -37,6 +37,10 @@ public class DragonAttack : MonoBehaviour
     {
         attackCollider.enabled = true;
     }
+    public void OnAttackStart1()
+    {
+        attackCollider.enabled = true;
+    }
 
     //attackColliderが攻撃対象にHitしたときに呼ぶ
     /// <param name="collider"></param>
@@ -49,6 +53,12 @@ public class DragonAttack : MonoBehaviour
 
     //攻撃の終了時に呼ばれます
     public void OnAttackFinished()
+    {
+        attackCollider.enabled = false;
+        StartCoroutine(CooldownCoroutine());
+    }
+
+    public void OnAttackFinished1()
     {
         attackCollider.enabled = false;
         StartCoroutine(CooldownCoroutine());
