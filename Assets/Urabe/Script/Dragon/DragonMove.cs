@@ -10,12 +10,12 @@ public class DragonMove : MonoBehaviour
     [SerializeField] private LayerMask raycastLayerMask;
     //[SerializeField] private float Speed = 3;
 
-    public Vector3[] wayPoints = new Vector3[3];   //徘徊するポイントの座標を代入するVector3型の変数を配列で作る
-    private int currentRoot;                       //現在目指すポイントを代入する変数
+    //public Vector3[] wayPoints = new Vector3[3];   //徘徊するポイントの座標を代入するVector3型の変数を配列で作る
+    //private int currentRoot;                       //現在目指すポイントを代入する変数
     private NavMeshAgent _agent;
     private RaycastHit[] _raycastHits = new RaycastHit[10];
     private EnemyStatus _status;
-    private int Mode;                             //敵の行動パターンを分けるための変数
+    //private int Mode;                             //敵の行動パターンを分けるための変数
     public Transform player;                      //プレイヤーの位置を取得するためのTransform型の変数
     public Transform enemypos;                   //敵の位置を取得するためのTransform型の変数
 
