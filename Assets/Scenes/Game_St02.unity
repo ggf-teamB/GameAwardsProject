@@ -13531,6 +13531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d6b40505ff78844aace58441f54935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stManagerObj: {fileID: 0}
+  stManager: {fileID: 0}
 --- !u!4 &609582730
 Transform:
   m_ObjectHideFlags: 0
@@ -26205,7 +26207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: palyerObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1974030860}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58505877bd932984c9773b838b2c4454, type: 3}
 --- !u!1001 &1135165911

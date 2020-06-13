@@ -163,6 +163,32 @@ public class Player : MonoBehaviour
             moveSpeed = walkSpeed;
         }
 
+        //すべての移動キーが押されたとき
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
+            Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("isRun", false);
+        }
+
+        //移動しない場合isRunをfalseにする
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+        {
+            //AキーとDキー入力の時は処理を切り上げる
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) return;
+
+            //isRunをfalseにする
+            animator.SetBool("isRun", false);
+        }
+
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            //WキーとSキー入力の時は処理を切り上げる
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S)) return;
+
+            //isRunをfalseにする
+            animator.SetBool("isRun", false);
+        }
+
 
         //wキーが押されたとき
         if (Input.GetKey(KeyCode.W))
@@ -266,32 +292,6 @@ public class Player : MonoBehaviour
             Run_Walk[1].Stop();
             //他のキー入力されてるとき処理を切り上げる
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A)) return;
-
-            //isRunをfalseにする
-            animator.SetBool("isRun", false);
-        }
-
-        //すべての移動キーが押されたとき
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
-            Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-        {
-            animator.SetBool("isRun", false);
-        }
-
-        //移動しない場合isRunをfalseにする
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
-        {
-            //AキーとDキー入力の時は処理を切り上げる
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) return;
-
-            //isRunをfalseにする
-            animator.SetBool("isRun", false);
-        }
-
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-        {
-            //WキーとSキー入力の時は処理を切り上げる
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S)) return;
 
             //isRunをfalseにする
             animator.SetBool("isRun", false);
