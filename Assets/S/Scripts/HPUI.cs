@@ -19,7 +19,7 @@ public class HPUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mypos = new Vector3(0, 0, 0);
+        Vector3 mypos = new Vector3(-50, -50, -50);
         Transform myTransform = this.transform;
         myTransform.position = mypos;  // 座標を設定
         Obstacles.gameObject.GetComponent<Transform>();

@@ -19,6 +19,8 @@ public class DragonMove : MonoBehaviour
     public Transform player;                      //プレイヤーの位置を取得するためのTransform型の変数
     public Transform enemypos;                   //敵の位置を取得するためのTransform型の変数
 
+    [SerializeField] STText tutorialtext;
+
     public void Start()
     {
         _agent = GetComponent<NavMeshAgent>();  //NavMeshAgentの情報をagentに代入
@@ -28,6 +30,7 @@ public class DragonMove : MonoBehaviour
     //CollisionDetectorのonTriggerStayにセットし、衝突判定を起こす
     public void OnDetectObject(Collider collider)
     {
+        if (tutorialtext.Flg == true) return;
         if (!_status.IsMovable)
         {
             _agent.isStopped = true;
