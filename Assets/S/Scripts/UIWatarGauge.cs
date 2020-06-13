@@ -71,19 +71,7 @@ public class UIWatarGauge : MonoBehaviour
             WaterMax = false;
         }
 
-        //ゲージMAXの時にスペースキーが押されたとき
-        if (Input.GetKey(KeyCode.Space) && WaterMax == true)
-        {
-            //isRollをtrueにする
-            animator.SetBool("isRoll", true);
-            //ゲージが減る処理
-            WatarGauge.fillAmount -= 1.0f / countTime * Time.deltaTime;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //isRunをfalseにする
-            animator.SetBool("isRoll", false);
-        }
+ 
 
         //flgがtrueなら
         if (SupplyFlg == true)
