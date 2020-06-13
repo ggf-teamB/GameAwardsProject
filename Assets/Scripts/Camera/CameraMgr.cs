@@ -11,15 +11,11 @@ public class CameraMgr : MonoBehaviour
 
     [SerializeField] private STText stText;
 
-    Vector3 roteuler;
-
     Vector3 playerRot;
 
     // Start is called before the first frame update
     void Start()
     {
-        roteuler = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0f);
-
         playerRot = new Vector3(player.transform.localEulerAngles.x,
             player.transform.localEulerAngles.y,
             player.transform.localEulerAngles.z);
@@ -39,14 +35,7 @@ public class CameraMgr : MonoBehaviour
         float X_Rotation = Input.GetAxis("Mouse X");
         float Y_Rotation = Input.GetAxis("Mouse Y");
 
-        roteuler = new Vector3(Mathf.Clamp(roteuler.x - Y_Rotation, -20, 30), 
-            0f, 0f);
-
         playerRot = new Vector3(0f, playerRot.y + X_Rotation, 0f);
-
-        transform.localEulerAngles = roteuler;
-
-
 
         player.transform.localEulerAngles = playerRot;
     }
