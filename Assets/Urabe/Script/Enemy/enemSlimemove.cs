@@ -86,11 +86,6 @@ public class enemSlimemove : MonoBehaviour
                 _agent.isStopped = false;
                 _agent.destination = collider.transform.position;
             }
-            else
-            {
-                //見失ったら停止する
-                _agent.isStopped = true;
-            }
         }
     }
 }
