@@ -39,12 +39,12 @@ public class Wave : MonoBehaviour
             box.center = new Vector3(6, 0, 0);
             box.size = new Vector3(16, 2, 2);
         }
-        if (timer >= 250)
+        if (timer >= 400)
         {
             box.center = new Vector3(0, 0, 0);
             box.size = new Vector3(2, 2, 2);
         }
-        if (timer > 500)
+        if (timer > 1000)
         {
             timer = 0;
         }
